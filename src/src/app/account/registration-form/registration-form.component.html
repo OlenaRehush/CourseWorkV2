@@ -1,0 +1,70 @@
+<!-- <div class="row">
+  <div class="col-md-6">
+    <h2>Please enter your information</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+      <form #f="ngForm" novalidate (ngSubmit)="registerUser(f)">
+          <div class="form-group">
+              <label for="first-name">First name</label>
+              <input type="text" class="form-control" id="first-name" placeholder="First name" name="firstName" tmFocus ngModel>              
+          </div>
+          <div class="form-group">
+              <label for="last-name">Last name</label>
+              <input type="text" class="form-control" id="last-name" placeholder="Last name" name="lastName" ngModel>              
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+          	<input id="email" type="text" required name="email" validateEmail class="form-control" placeholder="Email" ngModel  #email="ngModel">
+            <small [hidden]="email.valid || (email.pristine && !submitted)" class="text-danger">Please enter a valid email</small>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password" ngModel>
+          </div>   
+          <div class="form-group">
+             <label for="location">Location</label>
+             <input type="text" class="form-control" id="location" placeholder="Location"  required name="location" ngModel>              
+          </div> 
+
+          <div class="form-group">
+              <button type="submit" class="btn btn-primary" [disabled]="f.invalid || isRequesting">Sign Up</button>
+              <app-spinner [isRunning]="isRequesting"></app-spinner> 
+          </div>
+
+          <div *ngIf="errors" class="alert alert-danger" role="alert">
+              <strong>Oops!</strong> {{errors}}
+            </div>               
+          
+        </form>
+   </div>
+</div> -->
+
+
+
+<div id="login-box">
+  <div class="left">
+    <h1>Sign up</h1>
+    <form #f="ngForm" novalidate (ngSubmit)="registerUser(f)">
+      <input id="firstName" type="text" name="firstName" placeholder="First Name" ngModel />
+      <input id="lastName" type="text" name="lastName" placeholder="Last Name" ngModel />
+      <input id="email" type="text" name="email" placeholder="E-mail" ngModel />
+      <input id="password" type="password" name="password" placeholder="Password" ngModel />
+      <input type="password" name="password2" placeholder="Retype password" />
+
+      <input type="submit" name="signup_submit" [disabled]="f.invalid || isRequesting" value="Sign me up" />
+    </form>
+  </div>
+
+  <div class="right">
+    <span class="loginwith">Sign in with<br />social network</span>
+
+    <button class="social-signin facebook">Log in with facebook</button>
+  </div>
+  <div class="or">OR</div>
+</div>
+<div *ngIf="errors" class="alert alert-danger" role="alert">
+  <strong>Oops!</strong> {{errors}}
+</div>
