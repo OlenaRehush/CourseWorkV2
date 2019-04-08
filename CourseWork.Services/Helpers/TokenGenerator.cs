@@ -1,15 +1,14 @@
-using System.Linq;
+﻿using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using CourseWork.Api.Auth;
-using CourseWork.Api.Models;
+using CourseWork.Services.Abstractions;
 using Newtonsoft.Json;
 
-namespace CourseWork.Api.Helpers
+namespace CourseWork.Services.Helpers
 {
-    public class Tokens
+    public class TokenGenerator
     {
-        public static async Task<string> GenerateJwt(
+        public static async Task<string> GenerateTokenAsync(
             ClaimsIdentity identity,
             IJwtFactory jwtFactory,
             string userName,

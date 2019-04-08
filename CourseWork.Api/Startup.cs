@@ -1,13 +1,15 @@
 using System;
 using System.Net;
 using System.Text;
-using CourseWork.Api.Auth;
-using CourseWork.Api.Data;
-using CourseWork.Api.Extensions;
-using CourseWork.Api.Helpers;
-using CourseWork.Api.Models;
-using CourseWork.Api.Models.Entities;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
+using CourseWork.Api.Extensions;
+using CourseWork.DataAccess;
+using CourseWork.DataAccess.Entities;
+using CourseWork.Services;
+using CourseWork.Services.FacebookModels;
+using CourseWork.Services.Helpers;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -18,7 +20,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.IdentityModel.Tokens;
 
 namespace CourseWork.Api
@@ -35,8 +36,9 @@ namespace CourseWork.Api
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IContainer ApplicationContainer { get; private set; }
+
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -44,12 +46,8 @@ namespace CourseWork.Api
                     this.Configuration.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly("CourseWork.Api")));
 
-            services.AddSingleton<IJwtFactory, JwtFactory>();
-
             // Register the ConfigurationBuilder instance of FacebookAuthSettings
             services.Configure<FacebookAuthSettings>(this.Configuration.GetSection(nameof(FacebookAuthSettings)));
-
-            services.TryAddTransient<IHttpContextAccessor, HttpContextAccessor>();
 
             // jwt wire up
             // Get options from app settings
@@ -111,10 +109,18 @@ namespace CourseWork.Api
 
             services.AddAutoMapper();
             services.AddMvc().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Startup>());
+
+            this.ApplicationContainer = services.AddAutofacAfter();
+            IServiceProvider provider = new AutofacServiceProvider(this.ApplicationContainer);
+
+            return provider;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(
+            IApplicationBuilder app,
+            IHostingEnvironment env,
+            IApplicationLifetime appLifetime)
         {
             if (env.IsDevelopment())
             {
@@ -143,6 +149,8 @@ namespace CourseWork.Api
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseMvc();
+
+            appLifetime.ApplicationStopped.Register(() => this.ApplicationContainer.Dispose());
         }
     }
 }

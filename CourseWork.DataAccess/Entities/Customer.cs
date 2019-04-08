@@ -1,4 +1,4 @@
-namespace CourseWork.Api.Models.Entities
+namespace CourseWork.DataAccess.Entities
 {
     public class Customer
     {
@@ -6,10 +6,10 @@ namespace CourseWork.Api.Models.Entities
 
         public string IdentityId { get; set; }
 
-        public AppUser Identity { get; set; } // navigation property
-
         public string Locale { get; set; }
 
         public string Gender { get; set; }
+
+        public AppUser Identity { get; set; }
     }
 }

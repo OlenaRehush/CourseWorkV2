@@ -1,8 +1,8 @@
 using Newtonsoft.Json;
 
-namespace CourseWork.Api.Models
+namespace CourseWork.Services.FacebookModels
 {
-    internal class FacebookPicture
+    public class FacebookPicture
     {
         public int Height { get; set; }
 

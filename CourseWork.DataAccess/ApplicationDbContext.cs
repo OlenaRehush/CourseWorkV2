@@ -1,8 +1,8 @@
-using CourseWork.Api.Models.Entities;
+using CourseWork.DataAccess.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace CourseWork.Api.Data
+namespace CourseWork.DataAccess
 {
     public class ApplicationDbContext : IdentityDbContext<AppUser>
     {

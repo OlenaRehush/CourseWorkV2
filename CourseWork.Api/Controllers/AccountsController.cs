@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
-using CourseWork.Api.Data;
-using CourseWork.Api.Helpers;
-using CourseWork.Api.Models.Entities;
-using CourseWork.Api.ViewModels;
 using AutoMapper;
+using CourseWork.Api.Helpers;
+using CourseWork.Api.ViewModels;
+using CourseWork.DataAccess.Entities;
+using CourseWork.Services.Abstractions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,37 +12,33 @@ namespace CourseWork.Api.Controllers
     [Route("api/[controller]")]
     public class AccountsController : Controller
     {
-        private readonly ApplicationDbContext appDbContext;
-        private readonly UserManager<AppUser> userManager;
         private readonly IMapper mapper;
+        private readonly IAccountsService accountsService;
 
-        public AccountsController(UserManager<AppUser> userManager, IMapper mapper, ApplicationDbContext appDbContext)
+        public AccountsController(
+            IMapper mapper,
+            IAccountsService accountsService)
         {
-            this.userManager = userManager;
             this.mapper = mapper;
-            this.appDbContext = appDbContext;
+            this.accountsService = accountsService;
         }
-
-        // POST api/accounts
+        
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]RegistrationViewModel model)
+        public async Task<IActionResult> Register([FromBody]RegistrationViewModel model)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.BadRequest(this.ModelState);
             }
 
-            var userIdentity = this.mapper.Map<AppUser>(model);
+            AppUser userIdentity = this.mapper.Map<AppUser>(model);
 
-            var result = await this.userManager.CreateAsync(userIdentity, model.Password);
+            IdentityResult result = await this.accountsService.RegisterUserAsync(userIdentity, model.Password);
 
             if (!result.Succeeded)
             {
                 return new BadRequestObjectResult(Errors.AddErrorsToModelState(result, this.ModelState));
             }
-
-            await this.appDbContext.Customers.AddAsync(new Customer { IdentityId = userIdentity.Id });
-            await this.appDbContext.SaveChangesAsync();
 
             return new OkObjectResult("Account created");
         }

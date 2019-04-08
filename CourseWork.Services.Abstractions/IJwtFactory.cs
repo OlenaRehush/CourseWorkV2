@@ -1,7 +1,7 @@
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace CourseWork.Api.Auth
+namespace CourseWork.Services.Abstractions
 {
     public interface IJwtFactory
     {

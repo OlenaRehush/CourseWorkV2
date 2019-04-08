@@ -1,4 +1,4 @@
-namespace CourseWork.Api.Helpers
+namespace CourseWork.Services.Helpers
 {
     public static class Constants
     {

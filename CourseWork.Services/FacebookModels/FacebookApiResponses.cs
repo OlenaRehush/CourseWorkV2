@@ -1,8 +1,8 @@
 using Newtonsoft.Json;
 
-namespace CourseWork.Api.Models
+namespace CourseWork.Services.FacebookModels
 {
-    internal class FacebookUserData
+    public class FacebookUserData
     {
         public long Id { get; set; }
 

@@ -1,8 +1,8 @@
 using Newtonsoft.Json;
 
-namespace CourseWork.Api.Models
+namespace CourseWork.Services.FacebookModels
 {
-    internal class FacebookUserAccessTokenData
+    public class FacebookUserAccessTokenData
     {
         [JsonProperty("app_id")]
         public long AppId { get; set; }

@@ -1,4 +1,4 @@
-namespace CourseWork.Api.Models
+namespace CourseWork.Services.FacebookModels
 {
     public class FacebookAuthSettings
     {
