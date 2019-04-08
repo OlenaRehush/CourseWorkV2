@@ -1,5 +1,3 @@
-using Newtonsoft.Json;
-
 namespace CourseWork.Api.Models
 {
     internal class FacebookPictureData

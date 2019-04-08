@@ -1,7 +1,7 @@
 export interface UserRegistration {
-    firstName: string;
-    lastName:  string;
-    email: string;
-    password: string;
-    // location: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  // location: string;
 }

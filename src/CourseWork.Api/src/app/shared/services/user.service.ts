@@ -1,21 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
-
-import { UserRegistration } from '../models/user.registration.interface';
+import { Headers, Http, RequestOptions } from '@angular/http';
+import { BehaviorSubject, Observable } from 'rxjs/Rx';
+import '../../rxjs-operators';
 import { ConfigService } from '../utils/config.service';
-
 import { BaseService } from "./base.service";
 
-import { Observable } from 'rxjs/Rx';
-import { BehaviorSubject } from 'rxjs/Rx';
-
-// Add the RxJS Observable operators we need in this app.
-import '../../rxjs-operators';
-
 @Injectable()
-
 export class UserService extends BaseService {
-
   baseUrl: string = '';
 
   // Observable navItem source

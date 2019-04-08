@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { UserRegistration } from '../../shared/models/user.registration.interface';
 import { UserService } from '../../shared/services/user.service';
 
@@ -10,7 +9,6 @@ import { UserService } from '../../shared/services/user.service';
   styleUrls: ['./registration-form.component.scss']
 })
 export class RegistrationFormComponent implements OnInit {
-
   errors: string;
   isRequesting: boolean;
   submitted: boolean = false;
@@ -37,7 +35,4 @@ export class RegistrationFormComponent implements OnInit {
           errors => this.errors = errors);
     }
   }
-
-
-
 }

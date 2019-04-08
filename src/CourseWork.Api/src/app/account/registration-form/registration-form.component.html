@@ -9,40 +9,38 @@
       <form #f="ngForm" novalidate (ngSubmit)="registerUser(f)">
           <div class="form-group">
               <label for="first-name">First name</label>
-              <input type="text" class="form-control" id="first-name" placeholder="First name" name="firstName" tmFocus ngModel>              
+              <input type="text" class="form-control" id="first-name" placeholder="First name" name="firstName" tmFocus ngModel>
           </div>
           <div class="form-group">
               <label for="last-name">Last name</label>
-              <input type="text" class="form-control" id="last-name" placeholder="Last name" name="lastName" ngModel>              
+              <input type="text" class="form-control" id="last-name" placeholder="Last name" name="lastName" ngModel>
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-          	<input id="email" type="text" required name="email" validateEmail class="form-control" placeholder="Email" ngModel  #email="ngModel">
+            <input id="email" type="text" required name="email" validateEmail class="form-control" placeholder="Email" ngModel  #email="ngModel">
             <small [hidden]="email.valid || (email.pristine && !submitted)" class="text-danger">Please enter a valid email</small>
           </div>
           <div class="form-group">
             <label for="password">Password</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="Password" ngModel>
-          </div>   
+          </div>
           <div class="form-group">
              <label for="location">Location</label>
-             <input type="text" class="form-control" id="location" placeholder="Location"  required name="location" ngModel>              
-          </div> 
+             <input type="text" class="form-control" id="location" placeholder="Location"  required name="location" ngModel>
+          </div>
 
           <div class="form-group">
               <button type="submit" class="btn btn-primary" [disabled]="f.invalid || isRequesting">Sign Up</button>
-              <app-spinner [isRunning]="isRequesting"></app-spinner> 
+              <app-spinner [isRunning]="isRequesting"></app-spinner>
           </div>
 
           <div *ngIf="errors" class="alert alert-danger" role="alert">
               <strong>Oops!</strong> {{errors}}
-            </div>               
-          
+            </div>
+
         </form>
    </div>
 </div> -->
-
-
 
 <div id="login-box">
   <div class="left">
@@ -53,7 +51,6 @@
       <input id="email" type="text" name="email" placeholder="E-mail" ngModel />
       <input id="password" type="password" name="password" placeholder="Password" ngModel />
       <input type="password" name="password2" placeholder="Retype password" />
-
       <input type="submit" name="signup_submit" [disabled]="f.invalid || isRequesting" value="Sign me up" />
     </form>
   </div>

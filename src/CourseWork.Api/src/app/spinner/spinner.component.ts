@@ -5,9 +5,7 @@ import { Component, Input, OnDestroy } from '@angular/core';
   templateUrl: './spinner.component.html',
   styleUrls: ['./spinner.component.scss']
 })
-
-
-export class SpinnerComponent implements OnDestroy {  
+export class SpinnerComponent implements OnDestroy {
   private currentTimeout: number;
   public isDelayedRunning: boolean = false;
 
@@ -16,29 +14,29 @@ export class SpinnerComponent implements OnDestroy {
 
   @Input()
   public set isRunning(value: boolean) {
-      if (!value) {
-          this.cancelTimeout();
-          this.isDelayedRunning = false;
-          return;
-      }
+    if (!value) {
+      this.cancelTimeout();
+      this.isDelayedRunning = false;
+      return;
+    }
 
-      if (this.currentTimeout) {
-          return;
-      }
+    if (this.currentTimeout) {
+      return;
+    }
 
-      // specify window to side-step conflict with node types: https://github.com/mgechev/angular2-seed/issues/901
-      this.currentTimeout = window.setTimeout(() => {
-          this.isDelayedRunning = value;
-          this.cancelTimeout();
-      }, this.delay);
+    // specify window to side-step conflict with node types: https://github.com/mgechev/angular2-seed/issues/901
+    this.currentTimeout = window.setTimeout(() => {
+      this.isDelayedRunning = value;
+      this.cancelTimeout();
+    }, this.delay);
   }
 
   private cancelTimeout(): void {
-      clearTimeout(this.currentTimeout);
-      this.currentTimeout = undefined;
+    clearTimeout(this.currentTimeout);
+    this.currentTimeout = undefined;
   }
 
   ngOnDestroy(): any {
-      this.cancelTimeout();
+    this.cancelTimeout();
   }
 }

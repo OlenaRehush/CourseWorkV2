@@ -1,11 +1,9 @@
 import { Observable } from 'rxjs/Rx';
 
+export abstract class BaseService {
+  constructor() { }
 
-export abstract class BaseService {  
-    
-    constructor() { }
-
-    protected handleError(error: any) {
+  protected handleError(error: any) {
     var applicationError = error.headers.get('Application-Error');
 
     // either applicationError in header or model error in body

@@ -1,6 +1,5 @@
-import { Component, OnInit,OnDestroy } from '@angular/core';
-import {Subscription} from 'rxjs/Subscription';
-
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
 import { UserService } from '../shared/services/user.service';
 
 @Component({
@@ -9,23 +8,22 @@ import { UserService } from '../shared/services/user.service';
   styleUrls: ['./header.component.scss']
 })
 
-export class HeaderComponent implements OnInit,OnDestroy {
-
+export class HeaderComponent implements OnInit, OnDestroy {
   status: boolean;
- subscription:Subscription;
+  subscription: Subscription;
 
-  constructor(private userService:UserService) {     
-   }
+  constructor(private userService: UserService) {
+  }
 
-   logout() {
-     this.userService.logout();       
+  logout() {
+    this.userService.logout();
   }
 
   ngOnInit() {
     this.subscription = this.userService.authNavStatus$.subscribe(status => this.status = status);
   }
 
-   ngOnDestroy() {
+  ngOnDestroy() {
     // prevent memory leak when component is destroyed
     this.subscription.unsubscribe();
   }

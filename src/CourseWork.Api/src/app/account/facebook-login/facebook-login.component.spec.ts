@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FacebookLoginComponent } from './facebook-login.component';
 
 describe('FacebookLoginComponent', () => {
@@ -8,9 +7,8 @@ describe('FacebookLoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FacebookLoginComponent ]
-    })
-    .compileComponents();
+      declarations: [FacebookLoginComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

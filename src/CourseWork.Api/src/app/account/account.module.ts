@@ -1,23 +1,19 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule }  from '@angular/forms';
-import { SharedModule }   from '../shared/modules/shared.module';
- 
-import { UserService }  from '../shared/services/user.service';
-
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { EmailValidator } from '../directives/email.validator.directive';
-
-import { routing }  from './account.routing';
-import { RegistrationFormComponent } from './registration-form/registration-form.component';
-import { LoginFormComponent } from './login-form/login-form.component';
+import { SharedModule } from '../shared/modules/shared.module';
+import { UserService } from '../shared/services/user.service';
+import { routing } from './account.routing';
 import { FacebookLoginComponent } from './facebook-login/facebook-login.component';
-
+import { LoginFormComponent } from './login-form/login-form.component';
+import { RegistrationFormComponent } from './registration-form/registration-form.component';
 
 @NgModule({
   imports: [
-    CommonModule,FormsModule,routing,SharedModule
+    CommonModule, FormsModule, routing, SharedModule
   ],
-  declarations: [RegistrationFormComponent,EmailValidator, LoginFormComponent, FacebookLoginComponent],
-  providers:    [ UserService ]
+  declarations: [RegistrationFormComponent, EmailValidator, LoginFormComponent, FacebookLoginComponent],
+  providers: [UserService]
 })
 export class AccountModule { }
