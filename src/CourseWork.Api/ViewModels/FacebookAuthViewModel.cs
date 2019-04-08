@@ -1,4 +1,4 @@
-namespace AngularASPNETCore2WebApiAuth.ViewModels
+namespace CourseWork.Api.ViewModels
 {
     public class FacebookAuthViewModel
     {

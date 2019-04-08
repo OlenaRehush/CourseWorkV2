@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Http;
 
-namespace AngularASPNETCore2WebApiAuth.Extensions
+namespace CourseWork.Api.Extensions
 {
     public static class ResponseExtensions
     {

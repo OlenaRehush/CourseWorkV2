@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace AngularASPNETCore2WebApiAuth.Models.Entities
+namespace CourseWork.Api.Models.Entities
 {
     // Add profile data for application users by adding properties to this class
     public class AppUser : IdentityUser

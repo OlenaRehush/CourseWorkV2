@@ -1,4 +1,4 @@
-namespace AngularASPNETCore2WebApiAuth.Models.Entities
+namespace CourseWork.Api.Models.Entities
 {
     public class Customer
     {

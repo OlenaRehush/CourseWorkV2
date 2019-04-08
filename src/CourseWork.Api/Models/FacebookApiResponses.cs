@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace AngularASPNETCore2WebApiAuth.Models
+namespace CourseWork.Api.Models
 {
     internal class FacebookUserData
     {

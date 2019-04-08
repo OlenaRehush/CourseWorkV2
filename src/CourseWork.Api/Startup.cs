@@ -1,12 +1,12 @@
 using System;
 using System.Net;
 using System.Text;
-using AngularASPNETCore2WebApiAuth.Auth;
-using AngularASPNETCore2WebApiAuth.Data;
-using AngularASPNETCore2WebApiAuth.Extensions;
-using AngularASPNETCore2WebApiAuth.Helpers;
-using AngularASPNETCore2WebApiAuth.Models;
-using AngularASPNETCore2WebApiAuth.Models.Entities;
+using CourseWork.Api.Auth;
+using CourseWork.Api.Data;
+using CourseWork.Api.Extensions;
+using CourseWork.Api.Helpers;
+using CourseWork.Api.Models;
+using CourseWork.Api.Models.Entities;
 using AutoMapper;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -21,7 +21,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.IdentityModel.Tokens;
 
-namespace AngularASPNETCore2WebApiAuth
+namespace CourseWork.Api
 {
     public class Startup
     {
@@ -42,7 +42,7 @@ namespace AngularASPNETCore2WebApiAuth
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     this.Configuration.GetConnectionString("DefaultConnection"),
-                    b => b.MigrationsAssembly("AngularASPNETCore2WebApiAuth")));
+                    b => b.MigrationsAssembly("CourseWork.Api")));
 
             services.AddSingleton<IJwtFactory, JwtFactory>();
 

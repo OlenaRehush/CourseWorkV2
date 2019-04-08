@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace AngularASPNETCore2WebApiAuth
+namespace CourseWork.Api
 {
     public class Program
     {

@@ -1,4 +1,4 @@
-namespace AngularASPNETCore2WebApiAuth.Helpers
+namespace CourseWork.Api.Helpers
 {
     public static class Constants
     {

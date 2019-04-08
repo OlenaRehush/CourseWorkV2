@@ -1,18 +1,18 @@
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using AngularASPNETCore2WebApiAuth.Auth;
-using AngularASPNETCore2WebApiAuth.Data;
-using AngularASPNETCore2WebApiAuth.Helpers;
-using AngularASPNETCore2WebApiAuth.Models;
-using AngularASPNETCore2WebApiAuth.Models.Entities;
-using AngularASPNETCore2WebApiAuth.ViewModels;
+using CourseWork.Api.Auth;
+using CourseWork.Api.Data;
+using CourseWork.Api.Helpers;
+using CourseWork.Api.Models;
+using CourseWork.Api.Models.Entities;
+using CourseWork.Api.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
-namespace AngularASPNETCore2WebApiAuth.Controllers
+namespace CourseWork.Api.Controllers
 {
     [Route("api/[controller]/[action]")]
     public class ExternalAuthController : Controller

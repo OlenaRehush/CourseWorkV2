@@ -1,7 +1,7 @@
-using AngularASPNETCore2WebApiAuth.Models.Entities;
+using CourseWork.Api.Models.Entities;
 using AutoMapper;
 
-namespace AngularASPNETCore2WebApiAuth.ViewModels.Mappings
+namespace CourseWork.Api.ViewModels.Mappings
 {
     public class ViewModelToEntityMappingProfile : Profile
     {

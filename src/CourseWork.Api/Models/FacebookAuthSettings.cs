@@ -1,4 +1,4 @@
-namespace AngularASPNETCore2WebApiAuth.Models
+namespace CourseWork.Api.Models
 {
     public class FacebookAuthSettings
     {

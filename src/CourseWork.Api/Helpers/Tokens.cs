@@ -1,11 +1,11 @@
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using AngularASPNETCore2WebApiAuth.Auth;
-using AngularASPNETCore2WebApiAuth.Models;
+using CourseWork.Api.Auth;
+using CourseWork.Api.Models;
 using Newtonsoft.Json;
 
-namespace AngularASPNETCore2WebApiAuth.Helpers
+namespace CourseWork.Api.Helpers
 {
     public class Tokens
     {

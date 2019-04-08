@@ -1,8 +1,8 @@
-﻿using AngularASPNETCore2WebApiAuth.Models.Entities;
+using CourseWork.Api.Models.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace AngularASPNETCore2WebApiAuth.Data
+namespace CourseWork.Api.Data
 {
     public class ApplicationDbContext : IdentityDbContext<AppUser>
     {

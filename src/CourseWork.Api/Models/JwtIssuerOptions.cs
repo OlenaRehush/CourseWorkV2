@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.IdentityModel.Tokens;
 
-namespace AngularASPNETCore2WebApiAuth.Models
+namespace CourseWork.Api.Models
 {
     public class JwtIssuerOptions
     {

@@ -1,7 +1,7 @@
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace AngularASPNETCore2WebApiAuth.Auth
+namespace CourseWork.Api.Auth
 {
     public interface IJwtFactory
     {

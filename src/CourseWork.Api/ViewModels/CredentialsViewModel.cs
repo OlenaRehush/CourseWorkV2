@@ -1,7 +1,7 @@
-﻿using AngularASPNETCore2WebApiAuth.ViewModels.Validations;
+using CourseWork.Api.ViewModels.Validations;
 using FluentValidation.Attributes;
 
-namespace AngularASPNETCore2WebApiAuth.ViewModels
+namespace CourseWork.Api.ViewModels
 {
     [Validator(typeof(CredentialsViewModelValidator))]
     public class CredentialsViewModel

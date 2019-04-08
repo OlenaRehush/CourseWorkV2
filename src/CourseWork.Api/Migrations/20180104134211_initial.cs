@@ -2,7 +2,7 @@ using System;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace AngularASPNETCore2WebApiAuth.Migrations
+namespace CourseWork.Api.Migrations
 {
     public partial class Initial : Migration
     {

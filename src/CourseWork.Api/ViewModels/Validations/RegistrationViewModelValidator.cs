@@ -1,6 +1,6 @@
-﻿using FluentValidation;
+using FluentValidation;
 
-namespace AngularASPNETCore2WebApiAuth.ViewModels.Validations
+namespace CourseWork.Api.ViewModels.Validations
 {
     public class RegistrationViewModelValidator : AbstractValidator<RegistrationViewModel>
     {
