@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
     <CodeAnalysisRuleSet>..\.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 

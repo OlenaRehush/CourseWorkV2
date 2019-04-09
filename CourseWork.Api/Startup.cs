@@ -65,6 +65,11 @@ namespace CourseWork.Api
             IHostingEnvironment env,
             IApplicationLifetime appLifetime)
         {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
             app.UseExceptionHandler(
                 builder =>
                 {
