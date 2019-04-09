@@ -1,10 +1,8 @@
 using System.Threading.Tasks;
 using AutoMapper;
-using CourseWork.Api.Helpers;
-using CourseWork.Api.ViewModels;
+using CourseWork.Api.Requests;
 using CourseWork.DataAccess.Entities;
 using CourseWork.Services.Abstractions;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourseWork.Api.Controllers
@@ -24,7 +22,7 @@ namespace CourseWork.Api.Controllers
         }
         
         [HttpPost]
-        public async Task<IActionResult> Register([FromBody]RegistrationViewModel model)
+        public async Task<IActionResult> Register([FromBody]RegistrationRequest model)
         {
             if (!this.ModelState.IsValid)
             {
@@ -33,14 +31,14 @@ namespace CourseWork.Api.Controllers
 
             AppUser userIdentity = this.mapper.Map<AppUser>(model);
 
-            IdentityResult result = await this.accountsService.RegisterUserAsync(userIdentity, model.Password);
+            bool succeeded = await this.accountsService.TryRegisterUserAsync(userIdentity, model.Password);
 
-            if (!result.Succeeded)
+            if (!succeeded)
             {
-                return new BadRequestObjectResult(Errors.AddErrorsToModelState(result, this.ModelState));
+                return this.BadRequest("Registration failed. Please try again later.");
             }
 
-            return new OkObjectResult("Account created");
+            return this.Ok("Account created");
         }
     }
 }

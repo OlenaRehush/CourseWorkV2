@@ -2,13 +2,13 @@ using AutoMapper;
 using CourseWork.DataAccess.Entities;
 using CourseWork.Dto;
 
-namespace CourseWork.Api.ViewModels.Mappings
+namespace CourseWork.Api.Requests.Mappings
 {
     public class MappingProfile : Profile
     {
         public MappingProfile()
         {
-            this.CreateMap<RegistrationViewModel, AppUser>().ForMember(au => au.UserName, map => map.MapFrom(vm => vm.Email));
+            this.CreateMap<RegistrationRequest, AppUser>().ForMember(au => au.UserName, map => map.MapFrom(vm => vm.Email));
 
             this.CreateMap<Customer, CustomerDto>()
                 .ForMember(x => x.FirstName, opt => opt.MapFrom(x => x.Identity.FirstName))

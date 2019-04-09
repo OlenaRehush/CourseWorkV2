@@ -17,7 +17,6 @@ namespace CourseWork.Api.Controllers
             this.dashboardService = dashboardService;
         }
 
-        // GET api/dashboard/home
         [HttpGet]
         public async Task<IActionResult> Home()
         {
@@ -28,11 +27,7 @@ namespace CourseWork.Api.Controllers
                 return this.NotFound();
             }
 
-            return new OkObjectResult(new
-            {
-                Message = "This is secure API and user data!",
-                customer
-            });
+            return this.Ok(customer);
         }
     }
 }

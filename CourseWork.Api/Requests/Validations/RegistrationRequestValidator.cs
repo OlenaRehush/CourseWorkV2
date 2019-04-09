@@ -1,10 +1,10 @@
 using FluentValidation;
 
-namespace CourseWork.Api.ViewModels.Validations
+namespace CourseWork.Api.Requests.Validations
 {
-    public class RegistrationViewModelValidator : AbstractValidator<RegistrationViewModel>
+    public class RegistrationRequestValidator : AbstractValidator<RegistrationRequest>
     {
-        public RegistrationViewModelValidator()
+        public RegistrationRequestValidator()
         {
             this.RuleFor(vm => vm.Email).NotEmpty().WithMessage("Email cannot be empty");
             this.RuleFor(vm => vm.Password).NotEmpty().WithMessage("Password cannot be empty");

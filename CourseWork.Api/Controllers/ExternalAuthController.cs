@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using CourseWork.Api.ViewModels;
+using CourseWork.Api.Requests;
 using CourseWork.Services.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,17 +17,16 @@ namespace CourseWork.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Facebook([FromBody]FacebookAuthViewModel model)
+        public async Task<IActionResult> Facebook([FromBody]FacebookAuthRequest model)
         {
             string token = await this.externalAuthService.ExternalLoginOrRegister(model.AccessToken);
 
             if (token == null)
             {
-                this.ModelState.TryAddModelError("login_failure", "Failed to create local user account.");
-                return this.BadRequest(this.ModelState);
+                return this.BadRequest("Failed to create local user account.");
             }
 
-            return new OkObjectResult(token);
+            return this.Ok(token);
         }
     }
 }

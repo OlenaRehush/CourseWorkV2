@@ -1,6 +1,6 @@
-namespace CourseWork.Api.ViewModels
+namespace CourseWork.Api.Requests
 {
-    public class RegistrationViewModel
+    public class RegistrationRequest
     {
         public string Email { get; set; }
 

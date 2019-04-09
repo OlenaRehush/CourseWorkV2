@@ -17,7 +17,7 @@ namespace CourseWork.Services
             this.userManager = userManager;
         }
 
-        public async Task<IdentityResult> RegisterUserAsync(AppUser userIdentity, string password)
+        public async Task<bool> TryRegisterUserAsync(AppUser userIdentity, string password)
         {
             IdentityResult result = await this.userManager.CreateAsync(userIdentity, password);
 
@@ -27,7 +27,7 @@ namespace CourseWork.Services
                 await this.appDbContext.SaveChangesAsync();
             }
 
-            return result;
+            return result.Succeeded;
         }
     }
 }

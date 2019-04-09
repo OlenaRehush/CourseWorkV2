@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using CourseWork.Api.ViewModels;
+using CourseWork.Api.Requests;
 using CourseWork.Services.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,22 +17,24 @@ namespace CourseWork.Api.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody]CredentialsViewModel credentials)
+        public async Task<IActionResult> Login([FromBody]CredentialsRequest credentials)
         {
-            if (!this.ModelState.IsValid)
-            {
-                return this.BadRequest(this.ModelState);
-            }
+            throw new System.Exception();
 
-            string token = await this.authService.LoginAsync(credentials.UserName, credentials.Password);
-
-            if (token == null)
-            {
-                this.ModelState.TryAddModelError("login_failure", "Invalid username or password.");
-                return this.BadRequest(this.ModelState);
-            }
-
-            return new OkObjectResult(token);
+            // if (!this.ModelState.IsValid)
+            // {
+            //     return this.BadRequest(this.ModelState);
+            // }
+               
+            // string token = await this.authService.LoginAsync(credentials.UserName, credentials.Password);
+               
+            // if (token == null)
+            // {
+            //     this.ModelState.TryAddModelError("login_failure", "Invalid username or password.");
+            //     return this.BadRequest(this.ModelState);
+            // }
+               
+            // return this.Ok(token);
         }
     }
 }

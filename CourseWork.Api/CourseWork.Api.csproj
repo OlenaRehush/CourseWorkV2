@@ -4,10 +4,11 @@
     <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
     <CodeAnalysisRuleSet>..\.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  
   <ItemGroup>
-    <Folder Include="Auth\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.3.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
@@ -18,9 +19,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
   </ItemGroup>
+
   <ItemGroup>
       <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\CourseWork.DataAccess\CourseWork.DataAccess.csproj" />
     <ProjectReference Include="..\CourseWork.Dto\CourseWork.Dto.csproj" />
