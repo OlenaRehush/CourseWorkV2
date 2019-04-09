@@ -24,11 +24,6 @@ namespace CourseWork.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Register([FromBody]RegistrationRequest model)
         {
-            if (!this.ModelState.IsValid)
-            {
-                return this.BadRequest(this.ModelState);
-            }
-
             AppUser userIdentity = this.mapper.Map<AppUser>(model);
 
             bool succeeded = await this.accountsService.TryRegisterUserAsync(userIdentity, model.Password);

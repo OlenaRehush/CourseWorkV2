@@ -5,6 +5,7 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
 using CourseWork.Api.Extensions;
+using CourseWork.Api.Filters;
 using CourseWork.DataAccess;
 using CourseWork.DataAccess.Entities;
 using CourseWork.Services;
@@ -108,7 +109,9 @@ namespace CourseWork.Api
             builder.AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 
             services.AddAutoMapper();
-            services.AddMvc().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Startup>());
+            services
+                .AddMvc(options => options.Filters.Add(typeof(ValidateModelStateFilter)))
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Startup>());
 
             this.ApplicationContainer = services.AddAutofacAfter();
             IServiceProvider provider = new AutofacServiceProvider(this.ApplicationContainer);
