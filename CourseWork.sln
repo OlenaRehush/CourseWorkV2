@@ -5,17 +5,17 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseWork.Api", "CourseWork.Api\CourseWork.Api.csproj", "{27E2D292-D66B-47A1-AFF0-5DBADD669799}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseWork.DataAccess", "CourseWork.DataAccess\CourseWork.DataAccess.csproj", "{313BAC8D-0EA3-4023-8EB5-B841E7D95B13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseWork.DataAccess", "CourseWork.DataAccess\CourseWork.DataAccess.csproj", "{313BAC8D-0EA3-4023-8EB5-B841E7D95B13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseWork.Services", "CourseWork.Services\CourseWork.Services.csproj", "{7E1E5806-D198-4E49-BC11-33D0BE3E1DF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseWork.Services", "CourseWork.Services\CourseWork.Services.csproj", "{7E1E5806-D198-4E49-BC11-33D0BE3E1DF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseWork.Services.Abstractions", "CourseWork.Services.Abstractions\CourseWork.Services.Abstractions.csproj", "{4ACCCDA9-2F43-4578-AA4B-A52AC75A2738}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseWork.Services.Abstractions", "CourseWork.Services.Abstractions\CourseWork.Services.Abstractions.csproj", "{4ACCCDA9-2F43-4578-AA4B-A52AC75A2738}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Di", "Di", "{FC91D3F5-1099-4D2F-92E9-7121A89484B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseWork.Services.Di", "Di\CourseWork.Services.Di\CourseWork.Services.Di.csproj", "{B486FB94-1CDA-413A-B815-1380D0FAC50E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseWork.Services.Di", "Di\CourseWork.Services.Di\CourseWork.Services.Di.csproj", "{B486FB94-1CDA-413A-B815-1380D0FAC50E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseWork.Dto", "CourseWork.Dto\CourseWork.Dto.csproj", "{42BFF146-4DB4-4ADB-88AE-52CB326AD774}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseWork.Dto", "CourseWork.Dto\CourseWork.Dto.csproj", "{42BFF146-4DB4-4ADB-88AE-52CB326AD774}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
