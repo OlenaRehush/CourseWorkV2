@@ -65,11 +65,6 @@ namespace CourseWork.Api
             IHostingEnvironment env,
             IApplicationLifetime appLifetime)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
             app.UseExceptionHandler(
                 builder =>
                 {
@@ -83,7 +78,7 @@ namespace CourseWork.Api
                             if (error != null)
                             {
                                 context.Response.AddApplicationError(error.Error.Message);
-                                await context.Response.WriteAsync(error.Error.Message).ConfigureAwait(false);
+                                await context.Response.WriteAsync(error.Error.Message);
                             }
                         });
                 });
