@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Headers, Http, RequestOptions } from '@angular/http';
 import { BehaviorSubject, Observable } from 'rxjs/Rx';
 import '../../rxjs-operators';
-import { ConfigService } from '../utils/config.service';
 import { BaseService } from "./base.service";
 
 @Injectable()
@@ -16,13 +15,12 @@ export class UserService extends BaseService {
 
   private loggedIn = false;
 
-  constructor(private http: Http, private configService: ConfigService) {
+  constructor(private http: Http) {
     super();
     this.loggedIn = !!localStorage.getItem('auth_token');
     // ?? not sure if this the best way to broadcast the status but seems to resolve issue on page refresh where auth status is lost in
     // header component resulting in authed user nav links disappearing despite the fact user is still logged in
     this._authNavStatusSource.next(this.loggedIn);
-    this.baseUrl = configService.getApiURI();
   }
 
   register(firstName: string, lastName: string, email: string, password: string): Observable<any> {
@@ -30,18 +28,18 @@ export class UserService extends BaseService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.post(this.baseUrl + "/accounts", body, options)
+    return this.http.post('/api/accounts', body, options)
       .map(res => true)
       .catch(this.handleError);
   }
 
-  login(userName, password) {
+  login(userName: string, password: string) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
     return this.http
       .post(
-        this.baseUrl + '/auth/login',
+        '/api/auth/login',
         JSON.stringify({ userName, password }), { headers }
       )
       .map(res => res.json())
@@ -70,7 +68,7 @@ export class UserService extends BaseService {
     let body = JSON.stringify({ accessToken });
     return this.http
       .post(
-        this.baseUrl + '/externalauth/facebook', body, { headers })
+        '/api/externalauth/facebook', body, { headers })
       .map(res => res.json())
       .map(res => {
         localStorage.setItem('auth_token', res.auth_token);
