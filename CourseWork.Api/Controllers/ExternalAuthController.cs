@@ -23,7 +23,8 @@ namespace CourseWork.Api.Controllers
 
             if (token == null)
             {
-                return this.BadRequest("Failed to create local user account.");
+                this.ModelState.TryAddModelError("external_auth_failure", "Failed to create local user account.");
+                return this.BadRequest(this.ModelState);
             }
 
             return this.Ok(token);

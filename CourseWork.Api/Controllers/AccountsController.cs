@@ -30,11 +30,11 @@ namespace CourseWork.Api.Controllers
 
             if (!succeeded)
             {
-                this.ModelState.TryAddModelError("errorMessage", "Registration failed. Please try again later.");
+                this.ModelState.TryAddModelError("registration_failure", "Registration failed. Please try again later.");
                 return this.BadRequest(this.ModelState);
             }
 
-            return this.Ok("Account created");
+            return this.Ok();
         }
     }
 }

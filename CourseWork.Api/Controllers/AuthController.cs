@@ -23,7 +23,7 @@ namespace CourseWork.Api.Controllers
 
             if (token == null)
             {
-                this.ModelState.TryAddModelError("errorMessage", "Login failed. Please try again later.");
+                this.ModelState.TryAddModelError("login_failure", "Invalid username or password.");
                 return this.BadRequest(this.ModelState);
             }
 
