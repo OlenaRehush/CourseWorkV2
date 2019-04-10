@@ -1,11 +1,11 @@
-# AngularASPNETCore2WebApiAuth
-Sample project based on <a href="https://fullstackmark.com/post/13/jwt-authentication-with-aspnet-core-2-web-api-angular-5-net-core-identity-and-facebook-login">the blog post</a> demonstrating jwt-based authentication with an Angular (v5.2.1) frontend and ASP.NET Core 2 WebApi. Includes both local user registration with .NET Core Identity membership and facebook login scenarios.
-
-### Facebook flow
-<img src="https://fullstackmark.com/img/posts/13/angular-spa-aspnet-core-web-api-authentication-with-facebook-login-flow.gif" />
-
-### Email flow
-<img src="https://fullstackmark.com/img/posts/13/angular-spa-aspnet-core-web-api-authentication-with-email-signup-flow.gif" />
+# TeamLoadManagement
+Quite often team members are not loaded full-time and they execute multiple tasks at once.
+I would love to see some tool which helps tracking current load and current availability of team members in one single place
+with simple visualization to make the decision about further multiple assignments which are coming
+(e.g. if I see that the person is formally loaded 50% of their time, but still has 2 tasks in parallel,
+I would see it risky to give another task; or I would love to see who is really (not formally) available with Java skills).
+Also such a tool could give some level of prediction on the load and on the number of people
+required extra to cover that or another type of activities.
 
 ## Development Environment
 - Sql Server Express 2017 & Sql Server Management Studio 2017
@@ -26,4 +26,4 @@ To build and run the project using the command line:
 Of course, you can also run it from either Visual Studio 2017 or Visual Studio Code with the IDE handling most of the steps above.  If you have issues, try running the above steps from the command line to ensure things are setup properly.
 
 ## Facebook App Setup
-You're free to use the demo facebook app _Fullstack Cafe_ that the project is already configured with.  To setup and use your own application <a href="https://fullstackmark.com/post/13/jwt-authentication-with-aspnet-core-2-web-api-angular-5-net-core-identity-and-facebook-login#creating-a-facebook-application">follow the steps detailed on the post</a>.
+To setup and use your own application <a href="https://fullstackmark.com/post/13/jwt-authentication-with-aspnet-core-2-web-api-angular-5-net-core-identity-and-facebook-login#creating-a-facebook-application">follow the steps detailed on the post</a>.

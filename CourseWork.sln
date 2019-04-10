@@ -17,6 +17,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseWork.Services.Di", "D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseWork.Dto", "CourseWork.Dto\CourseWork.Dto.csproj", "{42BFF146-4DB4-4ADB-88AE-52CB326AD774}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{35182635-63FE-4DFC-A219-2FB6616C76E9}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.ruleset = .ruleset
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
