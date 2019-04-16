@@ -1,0 +1,29 @@
+<mat-toolbar class="app-header">
+
+  <mat-toolbar-row class="first-header">
+    <button mat-icon-button class="example-icon" aria-hidden="false" matTooltip="Dashboard" routerLinkActive="active"
+      routerLink="/dashboard">
+      <mat-icon>dashboard</mat-icon>
+    </button>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon" aria-hidden="false" *ngIf="!status" routerLinkActive="active"
+      routerLink="/register" matTooltip="Signup">
+      <mat-icon>person_add</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-hidden="false" *ngIf="!status" routerLinkActive="active"
+      routerLink="/login" matTooltip="Login">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-hidden="false" *ngIf="status" (click)="logout()"
+      matTooltip="Logout">
+      <mat-icon>power_settings_new</mat-icon>
+    </button>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row class="second-header">
+    <span class="example-spacer"></span>
+    <a mat-button routerLink="/tasks">Tasks</a>
+    <a mat-button routerLink=".">Users</a>
+  </mat-toolbar-row>
+
+</mat-toolbar>

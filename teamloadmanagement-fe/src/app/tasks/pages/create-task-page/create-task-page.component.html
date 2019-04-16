@@ -1,0 +1,25 @@
+<h1>Create new task</h1>
+
+<form class="create-task-container" #f="ngForm" novalidate (ngSubmit)="onSubmit(f)">
+  <mat-form-field>
+    <input id="title" name="title" required ngModel matInput placeholder="Title">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea id="description" name="description" ngModel matInput placeholder="Description"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input id="estimate" matInput type="number" ngModel required placeholder="Estimate" min="0"/>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Select">
+      <mat-option value="option">Option</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button class="create-button" mat-raised-button color="accent" type="submit" name="task_create_submit"
+    [disabled]="f.invalid">Create</button>
+
+</form>
