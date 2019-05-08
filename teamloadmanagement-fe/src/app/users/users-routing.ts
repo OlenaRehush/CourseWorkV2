@@ -3,10 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 
-import { UsersPageComponent } from './pages';
+import { UsersPageComponent, UserPageComponent } from './pages';
 
 const appRoutes: Routes = [
-    { path: 'users', component: UsersPageComponent }
+    { path: 'users', component: UsersPageComponent },
+    { path: 'users/:id', component: UserPageComponent }
 ];
 
 @NgModule({

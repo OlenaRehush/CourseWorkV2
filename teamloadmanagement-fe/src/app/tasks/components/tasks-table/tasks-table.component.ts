@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild, Input} from '@angular/core';
+import {Component, OnInit, ViewChild, Input, Output, EventEmitter} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import { Task } from '../../../shared/models';
 import {animate, state, style, transition, trigger} from '@angular/animations';
@@ -20,7 +20,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 })
 export class TasksTableComponent implements OnInit {
 
-  columnsToDisplay: string[] = ['title', 'estimate', 'progress', 'user'];
+  columnsToDisplay: string[] = ['title', 'estimate', 'progress', 'user', 'actions'];
   dataSource: MatTableDataSource<Task>;
   expandedElement: Task | null;
 
@@ -28,6 +28,9 @@ export class TasksTableComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   @Input() public tasks;
+
+  @Output() public deleteTaskEvent = new EventEmitter();
+  @Output() public assignTaskEvent = new EventEmitter();
 
   constructor() {
    }
@@ -47,4 +50,15 @@ export class TasksTableComponent implements OnInit {
     }
   }
 
+  delete(element){
+    this.deleteTaskEvent.emit(element);
+  }
+
+  assign(element){
+    this.assignTaskEvent.emit(element);
+  }
+
+  edit(element){
+
+  }
 }

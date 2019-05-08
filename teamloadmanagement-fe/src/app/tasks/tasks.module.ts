@@ -11,12 +11,14 @@ import { TasksRoutingModule } from './tasks-routing';
 import { CreateTaskPageComponent } from './pages/create-task-page/create-task-page.component';
 
 import { TasksService } from './services/tasks.service';
+import { TaskPageComponent } from './pages/task-page/task-page.component';
 
 @NgModule({
   declarations: [
     TasksPageComponent,
     TasksTableComponent,
-    CreateTaskPageComponent
+    CreateTaskPageComponent,
+    TaskPageComponent
   ],
   imports: [
     CommonModule,

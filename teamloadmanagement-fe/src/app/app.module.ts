@@ -19,6 +19,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { HomeComponent } from './home/home.component';
 import { NgMaterialModule } from './ng-material.module';
 import { ConfigService } from './shared/utils/config.service';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ConfigService } from './shared/utils/config.service';
   imports: [
     CommonModule,
     NgMaterialModule,
+    NgxSpinnerModule,
     HttpClientModule,
     routing,
     AccountModule,

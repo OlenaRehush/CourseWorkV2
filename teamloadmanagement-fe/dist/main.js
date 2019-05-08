@@ -92,7 +92,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var routing = _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forChild([
+var routing = _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forRoot([
     { path: 'register', component: _registration_form_registration_form_component__WEBPACK_IMPORTED_MODULE_3__["RegistrationFormComponent"] },
     { path: 'login', component: _login_form_login_form_component__WEBPACK_IMPORTED_MODULE_2__["LoginFormComponent"] },
     { path: 'facebook-login', component: _facebook_login_facebook_login_component__WEBPACK_IMPORTED_MODULE_1__["FacebookLoginComponent"] }
@@ -444,13 +444,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _account_account_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./account/account.module */ "./src/app/account/account.module.ts");
 /* harmony import */ var _core_core_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./core/core.module */ "./src/app/core/core.module.ts");
 /* harmony import */ var _tasks_tasks_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./tasks/tasks.module */ "./src/app/tasks/tasks.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _app_routing__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./app.routing */ "./src/app/app.routing.ts");
-/* harmony import */ var _authenticate_xhr_backend__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./authenticate-xhr.backend */ "./src/app/authenticate-xhr.backend.ts");
-/* harmony import */ var _dashboard_dashboard_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./dashboard/dashboard.module */ "./src/app/dashboard/dashboard.module.ts");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _ng_material_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./ng-material.module */ "./src/app/ng-material.module.ts");
-/* harmony import */ var _shared_utils_config_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./shared/utils/config.service */ "./src/app/shared/utils/config.service.ts");
+/* harmony import */ var _users_user_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./users/user.module */ "./src/app/users/user.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _app_routing__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./app.routing */ "./src/app/app.routing.ts");
+/* harmony import */ var _authenticate_xhr_backend__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./authenticate-xhr.backend */ "./src/app/authenticate-xhr.backend.ts");
+/* harmony import */ var _dashboard_dashboard_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./dashboard/dashboard.module */ "./src/app/dashboard/dashboard.module.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _ng_material_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./ng-material.module */ "./src/app/ng-material.module.ts");
+/* harmony import */ var _shared_utils_config_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./shared/utils/config.service */ "./src/app/shared/utils/config.service.ts");
+
 
 
 
@@ -475,28 +477,29 @@ var AppModule = /** @class */ (function () {
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"],
-                _home_home_component__WEBPACK_IMPORTED_MODULE_15__["HomeComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_12__["AppComponent"],
+                _home_home_component__WEBPACK_IMPORTED_MODULE_16__["HomeComponent"]
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"],
-                _ng_material_module__WEBPACK_IMPORTED_MODULE_16__["NgMaterialModule"],
+                _ng_material_module__WEBPACK_IMPORTED_MODULE_17__["NgMaterialModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClientModule"],
+                _app_routing__WEBPACK_IMPORTED_MODULE_13__["routing"],
                 _account_account_module__WEBPACK_IMPORTED_MODULE_8__["AccountModule"],
-                _dashboard_dashboard_module__WEBPACK_IMPORTED_MODULE_14__["DashboardModule"],
+                _dashboard_dashboard_module__WEBPACK_IMPORTED_MODULE_15__["DashboardModule"],
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["BrowserModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                 _core_core_module__WEBPACK_IMPORTED_MODULE_9__["CoreModule"],
                 _tasks_tasks_module__WEBPACK_IMPORTED_MODULE_10__["TaskModule"],
+                _users_user_module__WEBPACK_IMPORTED_MODULE_11__["UserModule"],
                 _angular_http__WEBPACK_IMPORTED_MODULE_4__["HttpModule"],
-                _app_routing__WEBPACK_IMPORTED_MODULE_12__["routing"],
-                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__["BrowserAnimationsModule"]
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__["BrowserAnimationsModule"],
             ],
-            providers: [_shared_utils_config_service__WEBPACK_IMPORTED_MODULE_17__["ConfigService"], {
+            providers: [_shared_utils_config_service__WEBPACK_IMPORTED_MODULE_18__["ConfigService"], {
                     provide: _angular_http__WEBPACK_IMPORTED_MODULE_4__["XHRBackend"],
-                    useClass: _authenticate_xhr_backend__WEBPACK_IMPORTED_MODULE_13__["AuthenticateXHRBackend"]
+                    useClass: _authenticate_xhr_backend__WEBPACK_IMPORTED_MODULE_14__["AuthenticateXHRBackend"]
                 }],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_12__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -686,7 +689,7 @@ var CoreModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\">\r\n  <mat-toolbar-row>\r\n    <button mat-icon-button class=\"example-icon\" aria-hidden=\"false\" matTooltip=\"Dashboard\" routerLinkActive=\"active\" routerLink=\"/dashboard\"><mat-icon>dashboard</mat-icon></button>\r\n    <span class=\"example-spacer\"></span>\r\n    <button mat-icon-button class=\"example-icon\" aria-hidden=\"false\" *ngIf=\"!status\" routerLinkActive=\"active\" routerLink=\"/register\" matTooltip=\"Signup\"><mat-icon>person_add</mat-icon></button>\r\n    <button mat-icon-button class=\"example-icon\" aria-hidden=\"false\" *ngIf=\"!status\" routerLinkActive=\"active\" routerLink=\"/login\" matTooltip=\"Login\"><mat-icon>exit_to_app</mat-icon></button>\r\n    <button mat-icon-button class=\"example-icon\" aria-hidden=\"false\" *ngIf=\"status\" (click)=\"logout()\" matTooltip=\"Logout\"><mat-icon>power_settings_new</mat-icon></button>\r\n  </mat-toolbar-row>\r\n</mat-toolbar>\r\n"
+module.exports = "<mat-toolbar class=\"app-header\">\r\n\r\n  <mat-toolbar-row class=\"first-header\">\r\n    <button mat-icon-button class=\"example-icon\" aria-hidden=\"false\" matTooltip=\"Dashboard\" routerLinkActive=\"active\"\r\n      routerLink=\"/dashboard\">\r\n      <mat-icon>dashboard</mat-icon>\r\n    </button>\r\n    <span class=\"example-spacer\"></span>\r\n    <button mat-icon-button class=\"example-icon\" aria-hidden=\"false\" *ngIf=\"!status\" routerLinkActive=\"active\"\r\n      routerLink=\"/register\" matTooltip=\"Signup\">\r\n      <mat-icon>person_add</mat-icon>\r\n    </button>\r\n    <button mat-icon-button class=\"example-icon\" aria-hidden=\"false\" *ngIf=\"!status\" routerLinkActive=\"active\"\r\n      routerLink=\"/login\" matTooltip=\"Login\">\r\n      <mat-icon>exit_to_app</mat-icon>\r\n    </button>\r\n    <button mat-icon-button class=\"example-icon\" aria-hidden=\"false\" *ngIf=\"status\" (click)=\"logout()\"\r\n      matTooltip=\"Logout\">\r\n      <mat-icon>power_settings_new</mat-icon>\r\n    </button>\r\n  </mat-toolbar-row>\r\n\r\n  <mat-toolbar-row class=\"second-header\">\r\n    <span class=\"example-spacer\"></span>\r\n    <a mat-button routerLink=\"/tasks\">Tasks</a>\r\n    <a mat-button routerLink=\".\">Users</a>\r\n  </mat-toolbar-row>\r\n\r\n</mat-toolbar>"
 
 /***/ }),
 
@@ -697,7 +700,7 @@ module.exports = "<mat-toolbar color=\"primary\">\r\n  <mat-toolbar-row>\r\n    
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-icon {\n  padding: 0 14px; }\n\n.example-spacer {\n  flex: 1 1 auto; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29yZS9oZWFkZXIvQzpcXE15UHJvamVjdHNcXHVuaXZlcnNpdHlcXGdpdGh1YlxcQ291cnNlV29ya1YyXFx0ZWFtbG9hZG1hbmFnZW1lbnQtZmUvc3JjXFxhcHBcXGNvcmVcXGhlYWRlclxcaGVhZGVyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBZSxFQUFBOztBQUdqQjtFQUNFLGNBQWMsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2NvcmUvaGVhZGVyL2hlYWRlci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5leGFtcGxlLWljb24ge1xyXG4gIHBhZGRpbmc6IDAgMTRweDtcclxufVxyXG5cclxuLmV4YW1wbGUtc3BhY2VyIHtcclxuICBmbGV4OiAxIDEgYXV0bztcclxufVxyXG4iXX0= */"
+module.exports = ".example-icon {\n  padding: 0 14px; }\n\n.example-spacer {\n  flex: 1 1 auto; }\n\n.app-header {\n  color: white !important; }\n\n.first-header {\n  background-color: #364B45; }\n\n.second-header {\n  background-color: #16A085; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29yZS9oZWFkZXIvQzpcXE15UHJvamVjdHNcXHVuaXZlcnNpdHlcXGdpdGh1YlxcQ291cnNlV29ya1YyXFx0ZWFtbG9hZG1hbmFnZW1lbnQtZmUvc3JjXFxhcHBcXGNvcmVcXGhlYWRlclxcaGVhZGVyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBZSxFQUFBOztBQUdqQjtFQUNFLGNBQWMsRUFBQTs7QUFHaEI7RUFFRSx1QkFBdUIsRUFBQTs7QUFJekI7RUFDRSx5QkFBeUIsRUFBQTs7QUFHM0I7RUFFRSx5QkFBeUIsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2NvcmUvaGVhZGVyL2hlYWRlci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5leGFtcGxlLWljb24ge1xyXG4gIHBhZGRpbmc6IDAgMTRweDtcclxufVxyXG5cclxuLmV4YW1wbGUtc3BhY2VyIHtcclxuICBmbGV4OiAxIDEgYXV0bztcclxufVxyXG5cclxuLmFwcC1oZWFkZXJ7XHJcbiAgLy8gYmFja2dyb3VuZC1jb2xvcjogIzc2MDAxRDtcclxuICBjb2xvcjogd2hpdGUgIWltcG9ydGFudDtcclxuICAvLyBib3JkZXItYm90dG9tOiA1cHggc29saWQgIzNFQkVBODtcclxufVxyXG5cclxuLmZpcnN0LWhlYWRlcntcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMzY0QjQ1O1xyXG59XHJcblxyXG4uc2Vjb25kLWhlYWRlcntcclxuICAvL2JhY2tncm91bmQtY29sb3I6ICM4MDg5YmM7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzE2QTA4NTtcclxufSJdfQ== */"
 
 /***/ }),
 
@@ -714,12 +717,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _shared_services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/services/user.service */ "./src/app/shared/services/user.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
 
 
 
 var HeaderComponent = /** @class */ (function () {
-    function HeaderComponent(userService) {
+    function HeaderComponent(userService, router) {
         this.userService = userService;
+        this.router = router;
     }
     HeaderComponent.prototype.logout = function () {
         this.userService.logout();
@@ -738,7 +744,8 @@ var HeaderComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./header.component.html */ "./src/app/core/header/header.component.html"),
             styles: [__webpack_require__(/*! ./header.component.scss */ "./src/app/core/header/header.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_shared_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_shared_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], HeaderComponent);
     return HeaderComponent;
 }());
@@ -1296,13 +1303,13 @@ var NgMaterialModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatInputModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatToolbarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatMenuModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatIconModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatListModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatCardModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSelectModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatChipsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatAutocompleteModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTreeModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatProgressSpinnerModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatProgressBarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatGridListModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatRadioModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatStepperModule"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_5__["MatTabsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTooltipModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatRippleModule"]
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatRippleModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSnackBarModule"]
             ],
             exports: [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginatorModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSidenavModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTableModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatButtonModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatCheckboxModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatInputModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatToolbarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatMenuModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatIconModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatListModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatCardModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSelectModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatChipsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatAutocompleteModule"], _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_3__["LayoutModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTreeModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatProgressSpinnerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatProgressBarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatGridListModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatRadioModule"],
-                _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_4__["MatDatepickerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatStepperModule"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_5__["MatTabsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTooltipModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatRippleModule"]]
+                _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_4__["MatDatepickerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatStepperModule"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_5__["MatTabsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTooltipModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatRippleModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSnackBarModule"]]
         })
     ], NgMaterialModule);
     return NgMaterialModule;
@@ -1739,7 +1746,7 @@ var SpinnerComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\n  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n</mat-form-field>\n\n<div class=\"mat-elevation-z8\">\n  <table mat-table [dataSource]=\"dataSource\" matSort multiTemplateDataRows>\n\n    <ng-container matColumnDef=\"{{column}}\" *ngFor=\"let column of columnsToDisplay\">\n      <th mat-header-cell *matHeaderCellDef> {{column}} </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element[column]}} </td>\n    </ng-container>\n    \n\n    <ng-container matColumnDef=\"expandedDetail\">\n      <td mat-cell *matCellDef=\"let element\" [attr.colspan]=\"columnsToDisplay.length\">\n        <div class=\"example-element-detail\" [@detailExpand]=\"element == expandedElement ? 'expanded' : 'collapsed'\">\n          <div class=\"example-element-description\">{{element.description}}</div>\n        </div>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"columnsToDisplay\"></tr>\n    <tr mat-row *matRowDef=\"let element; columns: columnsToDisplay;\" class=\"example-element-row\"\n      [class.example-expanded-row]=\"expandedElement === element\"\n      (click)=\"expandedElement = expandedElement === element ? null : element\">\n    </tr>\n    <tr mat-row *matRowDef=\"let row; columns: ['expandedDetail']\" class=\"example-detail-row\"></tr>\n  </table>\n\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n</div>"
+module.exports = "<mat-form-field>\n  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n</mat-form-field>\n\n<div class=\"mat-elevation-z8\">\n  <table mat-table [dataSource]=\"dataSource\" matSort multiTemplateDataRows>\n\n    <ng-container matColumnDef=\"{{column}}\" *ngFor=\"let column of columnsToDisplay\">\n      <th mat-header-cell *matHeaderCellDef> {{column}} </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element[column]}} </td>\n    </ng-container>\n\n\n    <ng-container matColumnDef=\"expandedDetail\">\n      <td mat-cell *matCellDef=\"let element\" [attr.colspan]=\"columnsToDisplay.length\">\n        <div class=\"example-element-detail\" [@detailExpand]=\"element == expandedElement ? 'expanded' : 'collapsed'\">\n          <div class=\"example-element-description\">\n            {{element.description}}\n            <button mat-icon-button>\n              <mat-icon>delete</mat-icon>\n            </button>\n            <button mat-icon-button>\n              <mat-icon>assignment_ind</mat-icon>\n            </button>\n            <button mat-icon-button>\n              <mat-icon>edit</mat-icon>\n            </button>\n          </div>\n        </div>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"columnsToDisplay\"></tr>\n    <tr mat-row *matRowDef=\"let element; columns: columnsToDisplay;\" class=\"example-element-row\"\n      [class.example-expanded-row]=\"expandedElement === element\"\n      (click)=\"expandedElement = expandedElement === element ? null : element\">\n    </tr>\n    <tr mat-row *matRowDef=\"let row; columns: ['expandedDetail']\" class=\"example-detail-row\"></tr>\n  </table>\n\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n</div>"
 
 /***/ }),
 
@@ -1828,7 +1835,7 @@ var TasksTableComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Create new task</h2>\n\n<form class=\"create-task-container\" #f=\"ngForm\" novalidate (ngSubmit)=\"onSubmit(f)\">\n  <mat-form-field>\n    <input id=\"title\" name=\"title\" required ngModel matInput placeholder=\"Title\">\n  </mat-form-field>\n\n  <mat-form-field>\n    <textarea id=\"description\" name=\"description\" ngModel matInput placeholder=\"Description\"></textarea>\n  </mat-form-field>\n\n  <mat-form-field>\n    <input matInput type=\"number\" required placeholder=\"Estimate\" min=\"0\">\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-select placeholder=\"Select\">\n      <mat-option value=\"option\">Option</mat-option>\n    </mat-select>\n  </mat-form-field>\n\n  <input type=\"submit\" name=\"task_create_submit\" [disabled]=\"f.invalid\" value=\"Log in\" />\n\n</form>"
+module.exports = "<h1>Create new task</h1>\n\n<form class=\"create-task-container\" #f=\"ngForm\" novalidate (ngSubmit)=\"onSubmit(f)\">\n  <mat-form-field>\n    <input id=\"title\" name=\"title\" required ngModel matInput placeholder=\"Title\">\n  </mat-form-field>\n\n  <mat-form-field>\n    <textarea id=\"description\" name=\"description\" ngModel matInput placeholder=\"Description\"></textarea>\n  </mat-form-field>\n\n  <mat-form-field>\n    <input id=\"estimate\" matInput type=\"number\" ngModel required placeholder=\"Estimate\" min=\"0\"/>\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-select placeholder=\"Select\">\n      <mat-option value=\"option\">Option</mat-option>\n    </mat-select>\n  </mat-form-field>\n\n  <button class=\"create-button\" mat-raised-button color=\"accent\" type=\"submit\" name=\"task_create_submit\"\n    [disabled]=\"f.invalid\">Create</button>\n\n</form>"
 
 /***/ }),
 
@@ -1839,7 +1846,7 @@ module.exports = "<h2>Create new task</h2>\n\n<form class=\"create-task-containe
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".create-task-container {\n  display: flex;\n  flex-direction: column; }\n\n.create-task-container > * {\n  width: 540px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdGFza3MvcGFnZXMvY3JlYXRlLXRhc2stcGFnZS9DOlxcTXlQcm9qZWN0c1xcdW5pdmVyc2l0eVxcZ2l0aHViXFxDb3Vyc2VXb3JrVjJcXHRlYW1sb2FkbWFuYWdlbWVudC1mZS9zcmNcXGFwcFxcdGFza3NcXHBhZ2VzXFxjcmVhdGUtdGFzay1wYWdlXFxjcmVhdGUtdGFzay1wYWdlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksYUFBYTtFQUNiLHNCQUFzQixFQUFBOztBQUcxQjtFQUNLLFlBQVksRUFBQSIsImZpbGUiOiJzcmMvYXBwL3Rhc2tzL3BhZ2VzL2NyZWF0ZS10YXNrLXBhZ2UvY3JlYXRlLXRhc2stcGFnZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jcmVhdGUtdGFzay1jb250YWluZXJ7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxufVxyXG5cclxuLmNyZWF0ZS10YXNrLWNvbnRhaW5lciA+ICoge1xyXG4gICAgIHdpZHRoOiA1NDBweDtcclxufSJdfQ== */"
+module.exports = ".create-task-container {\n  display: flex;\n  flex-direction: column; }\n\n.create-task-container > * {\n  max-width: 540px; }\n\n.create-button {\n  max-width: 240px !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdGFza3MvcGFnZXMvY3JlYXRlLXRhc2stcGFnZS9DOlxcTXlQcm9qZWN0c1xcdW5pdmVyc2l0eVxcZ2l0aHViXFxDb3Vyc2VXb3JrVjJcXHRlYW1sb2FkbWFuYWdlbWVudC1mZS9zcmNcXGFwcFxcdGFza3NcXHBhZ2VzXFxjcmVhdGUtdGFzay1wYWdlXFxjcmVhdGUtdGFzay1wYWdlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksYUFBYTtFQUNiLHNCQUFzQixFQUFBOztBQUcxQjtFQUNLLGdCQUFnQixFQUFBOztBQUdyQjtFQUNJLDJCQUEyQixFQUFBIiwiZmlsZSI6InNyYy9hcHAvdGFza3MvcGFnZXMvY3JlYXRlLXRhc2stcGFnZS9jcmVhdGUtdGFzay1wYWdlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNyZWF0ZS10YXNrLWNvbnRhaW5lcntcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG59XHJcblxyXG4uY3JlYXRlLXRhc2stY29udGFpbmVyID4gKiB7XHJcbiAgICAgbWF4LXdpZHRoOiA1NDBweDtcclxufVxyXG5cclxuLmNyZWF0ZS1idXR0b257XHJcbiAgICBtYXgtd2lkdGg6IDI0MHB4ICFpbXBvcnRhbnQ7XHJcbn0iXX0= */"
 
 /***/ }),
 
@@ -1942,7 +1949,7 @@ module.exports = "<h1>Tasks</h1>\r\n<app-tasks-table *ngIf=\"tasks && tasks.leng
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".add-task-button {\n  position: absolute;\n  bottom: 20px;\n  right: 20px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdGFza3MvcGFnZXMvdGFza3MtcGFnZS9DOlxcTXlQcm9qZWN0c1xcdW5pdmVyc2l0eVxcZ2l0aHViXFxDb3Vyc2VXb3JrVjJcXHRlYW1sb2FkbWFuYWdlbWVudC1mZS9zcmNcXGFwcFxcdGFza3NcXHBhZ2VzXFx0YXNrcy1wYWdlXFx0YXNrcy1wYWdlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksa0JBQWtCO0VBQ2xCLFlBQVk7RUFDWixXQUFXLEVBQUEiLCJmaWxlIjoic3JjL2FwcC90YXNrcy9wYWdlcy90YXNrcy1wYWdlL3Rhc2tzLXBhZ2UuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYWRkLXRhc2stYnV0dG9ue1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgYm90dG9tOiAyMHB4O1xyXG4gICAgcmlnaHQ6IDIwcHg7XHJcbn0iXX0= */"
+module.exports = ".add-task-button {\n  position: absolute;\n  bottom: 20px;\n  right: 20px;\n  background-color: #16A085; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdGFza3MvcGFnZXMvdGFza3MtcGFnZS9DOlxcTXlQcm9qZWN0c1xcdW5pdmVyc2l0eVxcZ2l0aHViXFxDb3Vyc2VXb3JrVjJcXHRlYW1sb2FkbWFuYWdlbWVudC1mZS9zcmNcXGFwcFxcdGFza3NcXHBhZ2VzXFx0YXNrcy1wYWdlXFx0YXNrcy1wYWdlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksa0JBQWtCO0VBQ2xCLFlBQVk7RUFDWixXQUFXO0VBQ1gseUJBQXlCLEVBQUEiLCJmaWxlIjoic3JjL2FwcC90YXNrcy9wYWdlcy90YXNrcy1wYWdlL3Rhc2tzLXBhZ2UuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYWRkLXRhc2stYnV0dG9ue1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgYm90dG9tOiAyMHB4O1xyXG4gICAgcmlnaHQ6IDIwcHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMTZBMDg1O1xyXG59Il19 */"
 
 /***/ }),
 
@@ -2027,16 +2034,17 @@ var TasksService = /** @class */ (function (_super) {
         // });
         //temp
         var array = [
-            { id: "2331", title: "task1", description: "12313231323", progress: "done", estimate: 12, user: "Aaaaaa" },
-            { id: "2331", title: "task1", description: "12313231323", progress: "done", estimate: 12, user: "Aaaaaa" },
-            { id: "2331", title: "task1", description: "12313231323", progress: "done", estimate: 12, user: "Aaaaaa" },
-            { id: "2331", title: "task1", description: "12313231323", progress: "done", estimate: 12, user: "Aaaaaa" },
-            { id: "2331", title: "task1", description: "12313231323", progress: "done", estimate: 12, user: "Aaaaaa" },
-            { id: "2331", title: "task1", description: "12313231323", progress: "done", estimate: 12, user: "Aaaaaa" },
-            { id: "2331", title: "task1", description: "12313231323", progress: "done", estimate: 12, user: "Aaaaaa" },
-            { id: "2331", title: "task1", description: "12313231323", progress: "done", estimate: 12, user: "Aaaaaa" }
+            { id: "2331", title: "task1", description: "12313231323", progress: "done", estimate: 12, user: "Aaaaaa", remaining: 2 },
+            { id: "2331", title: "task1", description: "12313231323", progress: "done", estimate: 12, user: "Aaaaaa", remaining: 2 },
+            { id: "2331", title: "task1", description: "12313231323", progress: "done", estimate: 12, user: "Aaaaaa", remaining: 2 },
+            { id: "2331", title: "task1", description: "12313231323", progress: "done", estimate: 12, user: "Aaaaaa", remaining: 2 },
+            { id: "2331", title: "task1", description: "12313231323", progress: "done", estimate: 12, user: "Aaaaaa", remaining: 2 },
+            { id: "2331", title: "task1", description: "12313231323", progress: "done", estimate: 12, user: "Aaaaaa", remaining: 2 },
+            { id: "2331", title: "task1", description: "12313231323", progress: "done", estimate: 12, user: "Aaaaaa", remaining: 2 },
+            { id: "2331", title: "task1", description: "12313231323", progress: "done", estimate: 12, user: "Aaaaaa", remaining: 2 }
         ];
-        tasks.next(array);
+        this.tasksArray = array;
+        tasks.next(this.tasksArray);
         tasks.complete();
         //temp
         return tasks;
@@ -2118,7 +2126,7 @@ var TasksRoutingModule = /** @class */ (function () {
     TasksRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             imports: [
-                _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forChild(appRoutes)
+                _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(appRoutes)
             ],
             exports: [
                 _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]
@@ -2190,6 +2198,280 @@ var TaskModule = /** @class */ (function () {
         })
     ], TaskModule);
     return TaskModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/users/components/users-table/users-table.component.html":
+/*!*************************************************************************!*\
+  !*** ./src/app/users/components/users-table/users-table.component.html ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mat-form-field>\n  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n</mat-form-field>\n\n<table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n\n  <!-- Position Column -->\n  <ng-container matColumnDef=\"name\">\n    <th mat-header-cell *matHeaderCellDef> name </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n  </ng-container>\n\n  <!-- Name Column -->\n  <ng-container matColumnDef=\"surname\">\n    <th mat-header-cell *matHeaderCellDef> surname </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.surname}} </td>\n  </ng-container>\n\n  <!-- Weight Column -->\n  <ng-container matColumnDef=\"skills\">\n    <th mat-header-cell *matHeaderCellDef> skills </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.skills}} </td>\n  </ng-container>\n\n  <!-- Symbol Column -->\n  <ng-container matColumnDef=\"tasks\">\n    <th mat-header-cell *matHeaderCellDef> tasks </th>\n    <td mat-cell *matCellDef=\"let element\">\n      <div *ngFor=\"let task of element.tasks\">\n        {{task.title}}\n        <mat-progress-bar mode=\"determinate\" value=\"{{task.prog}}\"></mat-progress-bar>\n      </div>\n    </td>\n  </ng-container>\n\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n</table>"
+
+/***/ }),
+
+/***/ "./src/app/users/components/users-table/users-table.component.scss":
+/*!*************************************************************************!*\
+  !*** ./src/app/users/components/users-table/users-table.component.scss ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/* Structure */\ntable {\n  width: 100%; }\n.mat-form-field {\n  font-size: 14px;\n  width: 100%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlcnMvY29tcG9uZW50cy91c2Vycy10YWJsZS9DOlxcTXlQcm9qZWN0c1xcdW5pdmVyc2l0eVxcZ2l0aHViXFxDb3Vyc2VXb3JrVjJcXHRlYW1sb2FkbWFuYWdlbWVudC1mZS9zcmNcXGFwcFxcdXNlcnNcXGNvbXBvbmVudHNcXHVzZXJzLXRhYmxlXFx1c2Vycy10YWJsZS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxjQUFBO0FBQ0E7RUFDSSxXQUFXLEVBQUE7QUFHYjtFQUNFLGVBQWU7RUFDZixXQUFXLEVBQUEiLCJmaWxlIjoic3JjL2FwcC91c2Vycy9jb21wb25lbnRzL3VzZXJzLXRhYmxlL3VzZXJzLXRhYmxlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyogU3RydWN0dXJlICovXHJcbnRhYmxlIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gIH1cclxuICBcclxuICAubWF0LWZvcm0tZmllbGQge1xyXG4gICAgZm9udC1zaXplOiAxNHB4O1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgfSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/users/components/users-table/users-table.component.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/users/components/users-table/users-table.component.ts ***!
+  \***********************************************************************/
+/*! exports provided: UsersTableComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsersTableComponent", function() { return UsersTableComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+
+
+
+var UsersTableComponent = /** @class */ (function () {
+    function UsersTableComponent() {
+        this.users = [
+            {
+                name: "Aweqwe2", surname: "wfhh3heu23h",
+                skills: [".net", "angular"],
+                tasks: [
+                    { id: "rhfuehfu", title: "1defjejf", estimate: 13, progress: "in progress", remaining: 8, description: "hjjoijfjrejkfrenkcknfjenjenrf", prog: 0 },
+                    { id: "rsdfsf", title: "gdrg", estimate: 30, progress: "in progress", remaining: 6, description: "fgdfdgfg", prog: 0 }
+                ]
+            },
+            {
+                name: "Aweqwe2", surname: "wfhh3heu23h",
+                skills: [".net", "angular"],
+                tasks: [
+                    { id: "rhfuehfu", title: "1defjejf", estimate: 13, progress: "in progress", remaining: 8, description: "hjjoijfjrejkfrenkcknfjenjenrf", prog: "" }
+                ]
+            },
+            {
+                name: "Aweqwe2", surname: "wfhh3heu23h",
+                skills: [".net", "angular"],
+                tasks: [
+                    { id: "rhfuehfu", title: "1defjejf", estimate: 13, progress: "in progress", remaining: 8, description: "hjjoijfjrejkfrenkcknfjenjenrf", prog: "" }
+                ]
+            },
+            {
+                name: "Aweqwe2", surname: "wfhh3heu23h",
+                skills: [".net", "angular"],
+                tasks: [
+                    { id: "rhfuehfu", title: "1defjejf", estimate: 13, progress: "in progress", remaining: 8, description: "hjjoijfjrejkfrenkcknfjenjenrf", prog: "" }
+                ]
+            },
+            {
+                name: "Aweqwe2", surname: "wfhh3heu23h",
+                skills: [".net", "angular"],
+                tasks: [
+                    { id: "rhfuehfu", title: "1defjejf", estimate: 13, progress: "in progress", remaining: 8, description: "hjjoijfjrejkfrenkcknfjenjenrf", prog: "" }
+                ]
+            },
+            {
+                name: "Aweqwe2", surname: "wfhh3heu23h",
+                skills: [".net", "angular"],
+                tasks: [
+                    { id: "rhfuehfu", title: "1defjejf", estimate: 13, progress: "in progress", remaining: 8, description: "hjjoijfjrejkfrenkcknfjenjenrf", prog: "" }
+                ]
+            }
+        ];
+        this.displayedColumns = ['name', 'surname', 'skills', 'tasks'];
+        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTableDataSource"](this.users);
+    }
+    UsersTableComponent.prototype.ngOnInit = function () {
+        // this.users.forEach(element => {
+        //   element.tasks.forEach(task=>{
+        //     task.prog = (task.estimate-task.remaining)*100/task.estimate;
+        //   })
+        // });
+    };
+    UsersTableComponent.prototype.applyFilter = function (filterValue) {
+        this.dataSource.filter = filterValue.trim().toLowerCase();
+    };
+    UsersTableComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-users-table',
+            template: __webpack_require__(/*! ./users-table.component.html */ "./src/app/users/components/users-table/users-table.component.html"),
+            styles: [__webpack_require__(/*! ./users-table.component.scss */ "./src/app/users/components/users-table/users-table.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], UsersTableComponent);
+    return UsersTableComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/users/pages/index.ts":
+/*!**************************************!*\
+  !*** ./src/app/users/pages/index.ts ***!
+  \**************************************/
+/*! exports provided: UsersPageComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _pages_users_page_users_page_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../pages/users-page/users-page.component */ "./src/app/users/pages/users-page/users-page.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UsersPageComponent", function() { return _pages_users_page_users_page_component__WEBPACK_IMPORTED_MODULE_0__["UsersPageComponent"]; });
+
+
+
+
+/***/ }),
+
+/***/ "./src/app/users/pages/users-page/users-page.component.html":
+/*!******************************************************************!*\
+  !*** ./src/app/users/pages/users-page/users-page.component.html ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<app-users-table>\n  \n</app-users-table>"
+
+/***/ }),
+
+/***/ "./src/app/users/pages/users-page/users-page.component.scss":
+/*!******************************************************************!*\
+  !*** ./src/app/users/pages/users-page/users-page.component.scss ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzZXJzL3BhZ2VzL3VzZXJzLXBhZ2UvdXNlcnMtcGFnZS5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/users/pages/users-page/users-page.component.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/users/pages/users-page/users-page.component.ts ***!
+  \****************************************************************/
+/*! exports provided: UsersPageComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsersPageComponent", function() { return UsersPageComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var UsersPageComponent = /** @class */ (function () {
+    function UsersPageComponent() {
+    }
+    UsersPageComponent.prototype.ngOnInit = function () {
+    };
+    UsersPageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-users-page',
+            template: __webpack_require__(/*! ./users-page.component.html */ "./src/app/users/pages/users-page/users-page.component.html"),
+            styles: [__webpack_require__(/*! ./users-page.component.scss */ "./src/app/users/pages/users-page/users-page.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], UsersPageComponent);
+    return UsersPageComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/users/user.module.ts":
+/*!**************************************!*\
+  !*** ./src/app/users/user.module.ts ***!
+  \**************************************/
+/*! exports provided: UserModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserModule", function() { return UserModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _pages_users_page_users_page_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/users-page/users-page.component */ "./src/app/users/pages/users-page/users-page.component.ts");
+/* harmony import */ var _users_routing__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./users-routing */ "./src/app/users/users-routing.ts");
+/* harmony import */ var _ng_material_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../ng-material.module */ "./src/app/ng-material.module.ts");
+/* harmony import */ var _components_users_table_users_table_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/users-table/users-table.component */ "./src/app/users/components/users-table/users-table.component.ts");
+
+
+
+
+
+
+
+var UserModule = /** @class */ (function () {
+    function UserModule() {
+    }
+    UserModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            declarations: [_pages_users_page_users_page_component__WEBPACK_IMPORTED_MODULE_3__["UsersPageComponent"], _components_users_table_users_table_component__WEBPACK_IMPORTED_MODULE_6__["UsersTableComponent"]],
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _users_routing__WEBPACK_IMPORTED_MODULE_4__["UsersRoutingModule"],
+                _ng_material_module__WEBPACK_IMPORTED_MODULE_5__["NgMaterialModule"]
+            ],
+            exports: [
+                _users_routing__WEBPACK_IMPORTED_MODULE_4__["UsersRoutingModule"]
+            ]
+        })
+    ], UserModule);
+    return UserModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/users/users-routing.ts":
+/*!****************************************!*\
+  !*** ./src/app/users/users-routing.ts ***!
+  \****************************************/
+/*! exports provided: UsersRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsersRoutingModule", function() { return UsersRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _pages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages */ "./src/app/users/pages/index.ts");
+
+
+
+
+var appRoutes = [
+    { path: 'users', component: _pages__WEBPACK_IMPORTED_MODULE_3__["UsersPageComponent"] }
+];
+var UsersRoutingModule = /** @class */ (function () {
+    function UsersRoutingModule() {
+    }
+    UsersRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
+            imports: [
+                _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(appRoutes)
+            ],
+            exports: [
+                _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]
+            ]
+        })
+    ], UsersRoutingModule);
+    return UsersRoutingModule;
 }());
 
 

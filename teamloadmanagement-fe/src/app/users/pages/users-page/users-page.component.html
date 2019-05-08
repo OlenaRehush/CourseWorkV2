@@ -1,3 +1,20 @@
-<app-users-table>
-  
-</app-users-table>
+<h1>Users</h1>
+<div class="filter-inputs">
+    <mat-form-field>
+        <mat-label>User</mat-label>
+        <mat-select [(value)]="selectedUsers" multiple>
+            <mat-option *ngFor="let user of users" [value]="user.firstName">
+                {{user.firstName}} {{user.lastName}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Skills</mat-label>
+        <mat-select [(value)]="selectedSkills">
+            
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<app-users-table *ngIf="users" [users]="users"></app-users-table>

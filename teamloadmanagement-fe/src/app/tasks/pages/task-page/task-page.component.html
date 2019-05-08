@@ -1,0 +1,41 @@
+<!-- <mat-grid-list cols="6" class="task-page-grid-list">
+
+  <mat-grid-tile [colspan]="5" [rowspan]="1">
+    <input class="title-input" [(ngModel)]="task.title">
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="5" [rowspan]="1">
+    <textarea class="descr-input" [(ngModel)]="task.description"> {{task.description}}</textarea>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="1" [rowspan]="2">
+    <p>fkjef uehrfuehrf fhirehfier rfheiohf r</p>
+  </mat-grid-tile>
+</mat-grid-list> -->
+
+<div class="task-page-grid-list" *ngIf="task">
+  <div>
+    <input class="title-input" [(ngModel)]="task.title">
+  </div>
+  <div>
+    <textarea class="descr-input" [(ngModel)]="task.description"> {{task.description}}</textarea>
+  </div>
+  <div>
+    <h4>
+      Assignee: {{task.user}}
+      <button mat-icon-button>
+        <mat-icon>assignment_ind</mat-icon>
+      </button></h4>
+  </div>
+  <div>
+    {{progressValue}}%
+    <mat-progress-bar class="example-margin" [mode]="determinate" [value]="progressValue">
+    </mat-progress-bar>
+  </div>
+  <div>
+    <h5>Estimate: <input [(ngModel)]="task.estimate"></h5>
+  </div>
+  <div>
+    <button mat-raised-button color="primary">Save</button>
+  </div>
+</div>

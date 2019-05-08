@@ -26,6 +26,7 @@
     "classlist.js": "1.1.20150312",
     "core-js": "^2.5.0",
     "ngx-bootstrap": "^4.0.1",
+    "ngx-spinner": "^7.1.4",
     "rxjs": "^6.4.0",
     "rxjs-compat": "^6.0.0-rc.0",
     "selenium-webdriver": "^4.0.0-alpha.1",
