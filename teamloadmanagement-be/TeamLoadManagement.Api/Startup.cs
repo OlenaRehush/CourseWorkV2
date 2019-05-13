@@ -32,10 +32,22 @@ namespace TeamLoadManagement.Api
 
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(
+                    "AllowAllHeaders",
+                      build =>
+                      {
+                          build.AllowAnyOrigin()
+                                 .AllowAnyHeader()
+                                 .AllowAnyMethod();
+                      });
+            });
+
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
+                options.UseSqlServer( 
                     this.Configuration.GetConnectionString("DefaultConnection"),
-                    b => b.MigrationsAssembly("TeamLoadManagement.Api")));
+                    b => b.MigrationsAssembly("TeamLoadManagement.DataAccess")));
 
             var builder = services.AddIdentityCore<AppUser>(o =>
             {
@@ -65,6 +77,8 @@ namespace TeamLoadManagement.Api
             IHostingEnvironment env,
             IApplicationLifetime appLifetime)
         {
+            app.UseCors("AllowAllHeaders");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
