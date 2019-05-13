@@ -30,4 +30,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     // prevent memory leak when component is destroyed
     this.subscription.unsubscribe();
   }
+
+  goTo(route){
+    //this.router.navigate([route]);
+    this.router.navigateByUrl(route);
+  }
 }

@@ -13,7 +13,8 @@ export const routing: ModuleWithProviders = RouterModule.forChild([
         children: [
             { path: '', component: HomeComponent },
             { path: 'home', component: HomeComponent },
-            { path: 'settings', component: SettingsComponent },
+            { path: 'settings', component: SettingsComponent }
+            // { path: 'dashboard', component: HomeComponent}
         ]
     }
 ]);

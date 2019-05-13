@@ -1,17 +1,14 @@
 <mat-toolbar class="app-header">
 
   <mat-toolbar-row class="first-header">
-    <button mat-icon-button class="example-icon" aria-hidden="false" matTooltip="Dashboard" routerLinkActive="active"
-      routerLink="/dashboard">
+    <button mat-icon-button class="example-icon" aria-hidden="false" matTooltip="Dashboard" (click)="goTo('/')">
       <mat-icon>dashboard</mat-icon>
     </button>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon" aria-hidden="false" *ngIf="!status" routerLinkActive="active"
-      routerLink="/register" matTooltip="Signup">
+    <button mat-icon-button class="example-icon" aria-hidden="false" *ngIf="!status" (click)="goTo('/register')" matTooltip="Signup">
       <mat-icon>person_add</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" aria-hidden="false" *ngIf="!status" routerLinkActive="active"
-      routerLink="/login" matTooltip="Login">
+    <button mat-icon-button class="example-icon" aria-hidden="false" *ngIf="!status" (click)="goTo('/login')" matTooltip="Login">
       <mat-icon>exit_to_app</mat-icon>
     </button>
     <button mat-icon-button class="example-icon" aria-hidden="false" *ngIf="status" (click)="logout()"

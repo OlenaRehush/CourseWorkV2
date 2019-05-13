@@ -6,7 +6,7 @@ import { BaseService } from "./base.service";
 
 @Injectable()
 export class UserService extends BaseService {
-  baseUrl: string = '';
+  baseUrl: string = 'http://localhost:5000';
 
   // Observable navItem source
   private _authNavStatusSource = new BehaviorSubject<boolean>(false);
@@ -28,7 +28,7 @@ export class UserService extends BaseService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.post('/api/accounts', body, options)
+    return this.http.post(`${this.baseUrl}/api/accounts`, body, options)
       .map(res => true)
       .catch(this.handleError);
   }
@@ -39,7 +39,7 @@ export class UserService extends BaseService {
 
     return this.http
       .post(
-        '/api/auth/login',
+        `${this.baseUrl}/api/auth/login`,
         JSON.stringify({ userName, password }), { headers }
       )
       .map(res => res.json())
