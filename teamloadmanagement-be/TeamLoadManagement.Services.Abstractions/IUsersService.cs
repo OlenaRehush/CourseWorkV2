@@ -6,10 +6,10 @@ namespace TeamLoadManagement.Services.Abstractions
 {
     public interface IUsersService
     {
-        Task<IEnumerable<Customer>> GetAll();
+        Task<IEnumerable<AppUser>> GetAll();
 
-        Task<Customer> GetById(int id);
+        Task<AppUser> GetById(string id);
 
-        Task<Customer> Update(Customer customer);
+        Task<AppUser> Update(AppUser customer);
     }
 }

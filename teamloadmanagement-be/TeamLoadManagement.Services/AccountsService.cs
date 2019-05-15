@@ -23,7 +23,6 @@ namespace TeamLoadManagement.Services
 
             if (result.Succeeded)
             {
-                await this.appDbContext.Customers.AddAsync(new Customer { IdentityId = userIdentity.Id });
                 await this.appDbContext.SaveChangesAsync();
             }
 

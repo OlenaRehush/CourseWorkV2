@@ -62,7 +62,6 @@ namespace TeamLoadManagement.Services
 
                 if (result.Succeeded)
                 {
-                    await this.appDbContext.Customers.AddAsync(new Customer { IdentityId = appUser.Id, Locale = userInfo.Locale, Gender = userInfo.Gender });
                     await this.appDbContext.SaveChangesAsync();
                 }
             }

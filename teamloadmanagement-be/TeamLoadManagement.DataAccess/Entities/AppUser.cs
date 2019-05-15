@@ -11,5 +11,9 @@ namespace TeamLoadManagement.DataAccess.Entities
         public long? FacebookId { get; set; }
 
         public string PictureUrl { get; set; }
+
+        // public IEnumerable<UserTask> Tasks { get; set; }
+
+        // public IEnumerable<Skill> Skills { get; set; }
     }
 }

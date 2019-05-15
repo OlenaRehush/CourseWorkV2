@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TeamLoadManagement.Services.Abstractions;
@@ -6,7 +7,8 @@ using TeamLoadManagement.DataAccess.Entities;
 
 namespace TeamLoadManagement.Api.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Authorize(Policy = "ApiUser")]
+    [Route("api/[controller]")]
     public class SkillsController : Controller
     {
         private readonly ISkillsService skillsService;

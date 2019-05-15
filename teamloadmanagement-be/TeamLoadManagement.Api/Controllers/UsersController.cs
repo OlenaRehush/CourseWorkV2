@@ -26,7 +26,7 @@ namespace TeamLoadManagement.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetById(string id)
         {
             var user = await this.GetById(id);
 
@@ -34,9 +34,9 @@ namespace TeamLoadManagement.Api.Controllers
         }
         
         [HttpPut]
-        public async Task<IActionResult> Update(Customer customer)
+        public async Task<IActionResult> Update(AppUser appUser)
         {
-            var user = this.usersService.Update(customer);
+            var user = this.usersService.Update(appUser);
 
             return this.Ok(user);
         }

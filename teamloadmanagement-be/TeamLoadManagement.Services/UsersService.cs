@@ -16,23 +16,23 @@ namespace TeamLoadManagement.Services
             this.dbContext = dbContext;
         }
 
-        public async Task<IEnumerable<Customer>> GetAll()
+        public async Task<IEnumerable<AppUser>> GetAll()
         {
-            var users = await this.dbContext.Customers.Include(x => x.Identity).AsNoTracking().ToListAsync();
+            var users = await this.dbContext.Users.AsNoTracking().ToListAsync();
 
             return users;
         }
 
-        public async Task<Customer> GetById(int id)
+        public async Task<AppUser> GetById(string id)
         {
-            var user = await this.dbContext.Customers.Include(x => x.Identity).AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
+            var user = await this.dbContext.Users.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
 
             return user;
         }
 
-        public async Task<Customer> Update(Customer customer)
+        public async Task<AppUser> Update(AppUser customer)
         {
-            this.dbContext.Customers.Update(customer);
+            this.dbContext.Users.Update(customer);
 
             await this.dbContext.SaveChangesAsync();
 

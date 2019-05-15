@@ -188,30 +188,15 @@ namespace TeamLoadManagement.Api.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("TeamLoadManagement.DataAccess.Entities.Customer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Gender");
-
-                    b.Property<string>("IdentityId");
-
-                    b.Property<string>("Locale");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdentityId");
-
-                    b.ToTable("Customers");
-                });
-
             modelBuilder.Entity("TeamLoadManagement.DataAccess.Entities.Skill", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Title");
 
                     b.HasKey("Id");
 
@@ -224,7 +209,13 @@ namespace TeamLoadManagement.Api.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Description");
+
                     b.Property<TimeSpan>("Estimate");
+
+                    b.Property<string>("Status");
+
+                    b.Property<string>("Title");
 
                     b.HasKey("Id");
 
@@ -274,13 +265,6 @@ namespace TeamLoadManagement.Api.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TeamLoadManagement.DataAccess.Entities.Customer", b =>
-                {
-                    b.HasOne("TeamLoadManagement.DataAccess.Entities.AppUser", "Identity")
-                        .WithMany()
-                        .HasForeignKey("IdentityId");
                 });
 #pragma warning restore 612, 618
         }
