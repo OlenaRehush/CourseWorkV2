@@ -22,6 +22,15 @@ namespace TeamLoadManagement.Services.Di
             builder.RegisterType<JwtFactory>()
                 .As<IJwtFactory>()
                 .SingleInstance();
+
+            builder.RegisterType<UsersService>()
+                .As<IUsersService>();
+
+            builder.RegisterType<TasksService>()
+                .As<ITasksService>();
+
+            builder.RegisterType<SkillsService>()
+                .As<ISkillsService>();
         }
     }
 }

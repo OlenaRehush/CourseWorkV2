@@ -12,5 +12,9 @@ namespace TeamLoadManagement.DataAccess
         }
 
         public DbSet<Customer> Customers { get; set; }
+
+        public DbSet<Skill> Skills { get; set; }
+
+        public DbSet<UserTask> UserTasks { get; set; }
     }
 }

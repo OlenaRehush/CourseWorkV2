@@ -47,7 +47,7 @@ namespace TeamLoadManagement.Api
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer( 
                     this.Configuration.GetConnectionString("DefaultConnection"),
-                    b => b.MigrationsAssembly("TeamLoadManagement.DataAccess")));
+                    b => b.MigrationsAssembly("TeamLoadManagement.Api")));
 
             var builder = services.AddIdentityCore<AppUser>(o =>
             {
