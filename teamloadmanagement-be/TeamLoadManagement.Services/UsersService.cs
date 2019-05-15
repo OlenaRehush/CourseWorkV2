@@ -30,13 +30,16 @@ namespace TeamLoadManagement.Services
             return user;
         }
 
-        public async Task<AppUser> Update(AppUser customer)
+        public async Task<AppUser> Update(string id, string firstName, string lastName)
         {
-            this.dbContext.Users.Update(customer);
+            var user = await this.dbContext.Users.FirstOrDefaultAsync(x => x.Id == id);
+            user.FirstName = firstName;
+            user.LastName = lastName;
+            this.dbContext.Users.Update(user);
 
             await this.dbContext.SaveChangesAsync();
 
-            return customer;
+            return user;
         }
     }
 }

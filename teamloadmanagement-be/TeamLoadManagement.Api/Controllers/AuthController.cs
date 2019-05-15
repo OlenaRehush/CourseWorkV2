@@ -19,7 +19,7 @@ namespace TeamLoadManagement.Api.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody]CredentialsRequest credentials)
         {
-            string token = await this.authService.LoginAsync(credentials.UserName, credentials.Password);
+            var token = await this.authService.LoginAsync(credentials.UserName, credentials.Password);
 
             if (token == null)
             {

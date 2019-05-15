@@ -16,8 +16,13 @@ namespace TeamLoadManagement.Services
             this.dbContext = dbContext;
         }
 
-        public async Task<Skill> Create(Skill skill)
+        public async Task<Skill> Create(string description, string title)
         {
+            var skill = new Skill
+            {
+                Description = description,
+                Title = title
+            };
             this.dbContext.Skills.Add(skill);
 
             await this.dbContext.SaveChangesAsync();
@@ -48,8 +53,13 @@ namespace TeamLoadManagement.Services
             return skill;
         }
 
-        public async Task<Skill> Update(Skill skill)
+        public async Task<Skill> Update(int id, string description, string title)
         {
+            var skill = await this.dbContext.Skills.FirstOrDefaultAsync(x => x.Id == id);
+
+            skill.Description = description;
+            skill.Title = title;
+
             this.dbContext.Skills.Update(skill);
 
             await this.dbContext.SaveChangesAsync();

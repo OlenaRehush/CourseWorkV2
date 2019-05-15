@@ -10,7 +10,7 @@ namespace TeamLoadManagement.Api.Requests.Mappings
         {
             this.CreateMap<RegistrationRequest, AppUser>().ForMember(au => au.UserName, map => map.MapFrom(vm => vm.Email));
 
-            this.CreateMap<AppUser, CustomerDto>();
+            this.CreateMap<AppUser, UserDto>();
         }
     }
 }

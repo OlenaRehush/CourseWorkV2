@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using TeamLoadManagement.DataAccess.Entities;
+using TeamLoadManagement.Api.Requests;
 using TeamLoadManagement.Services.Abstractions;
 
 namespace TeamLoadManagement.Api.Controllers
@@ -35,17 +35,17 @@ namespace TeamLoadManagement.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(UserTask userTask)
+        public async Task<IActionResult> Create(CreateTaskRequest request)
         {
-            var task = await this.Create(userTask);
+            var task = await this.tasksService.Create(request.Description, request.Title, request.Estimate, request.Status);
 
             return this.StatusCode(StatusCodes.Status201Created, task);
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(UserTask userTask)
+        public async Task<IActionResult> Update(UpdateTaskRequest request)
         {
-            var task = await this.Update(userTask);
+            var task = await this.tasksService.Update(request.Id, request.Description, request.Title, request.Estimate, request.Status);
 
             return this.Ok(task);
         }

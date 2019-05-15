@@ -10,6 +10,6 @@ namespace TeamLoadManagement.Services.Abstractions
 
         Task<AppUser> GetById(string id);
 
-        Task<AppUser> Update(AppUser customer);
+        Task<AppUser> Update(string id, string firstName, string lastName);
     }
 }

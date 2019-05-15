@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -16,8 +17,16 @@ namespace TeamLoadManagement.Services
             this.dbContext = dbContext;
         }
 
-        public async Task<UserTask> Create(UserTask task)
+        public async Task<UserTask> Create(string description, string title, TimeSpan estimate, string status)
         {
+            var task = new UserTask
+            {
+                Description = description,
+                Title = title,
+                Estimate = estimate,
+                Status = status
+            };
+
             this.dbContext.UserTasks.Add(task);
 
             await this.dbContext.SaveChangesAsync();
@@ -48,8 +57,15 @@ namespace TeamLoadManagement.Services
             return task;
         }
 
-        public async Task<UserTask> Update(UserTask task)
+        public async Task<UserTask> Update(int id, string description, string title, TimeSpan estimate, string status)
         {
+            var task = await this.dbContext.UserTasks.FirstOrDefaultAsync(x => x.Id == id);
+
+            task.Description = description;
+            task.Title = title;
+            task.Estimate = estimate;
+            task.Status = status;
+
             this.dbContext.UserTasks.Update(task);
 
             await this.dbContext.SaveChangesAsync();

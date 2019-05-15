@@ -2,8 +2,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TeamLoadManagement.Api.Requests;
 using TeamLoadManagement.Services.Abstractions;
-using TeamLoadManagement.DataAccess.Entities;
 
 namespace TeamLoadManagement.Api.Controllers
 {
@@ -35,17 +35,17 @@ namespace TeamLoadManagement.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Skill userSkill)
+        public async Task<IActionResult> Create(CreateSkillRequest request)
         {
-            var skill = await this.skillsService.Create(userSkill);
+            var skill = await this.skillsService.Create(request.Description, request.Title);
 
             return this.StatusCode(StatusCodes.Status201Created, skill);
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(Skill userSkill)
+        public async Task<IActionResult> Update(UpdateSkillsRequest request)
         {
-            var skill = await this.skillsService.Update(userSkill);
+            var skill = await this.skillsService.Update(request.Id, request.Description, request.Title);
 
             return this.Ok(skill);
         }

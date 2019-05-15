@@ -10,9 +10,9 @@ namespace TeamLoadManagement.Services.Abstractions
 
         Task<Skill> GetById(int id);
 
-        Task<Skill> Create(Skill skill);
+        Task<Skill> Create(string description, string title);
 
-        Task<Skill> Update(Skill skill);
+        Task<Skill> Update(int id, string description, string title);
 
         Task Delete(int id);
     }

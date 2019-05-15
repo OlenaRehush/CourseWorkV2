@@ -26,13 +26,13 @@ namespace TeamLoadManagement.Services
             this.mapper = mapper;
         }
 
-        public async Task<CustomerDto> GetData()
+        public async Task<UserDto> GetData()
         {
             string userId = this.claimsPrincipal.FindFirstValue("id");
-            AppUser customer = await this.appDbContext.Users.SingleAsync(c => c.Id == userId);
-            CustomerDto customerDto = this.mapper.Map<CustomerDto>(customer);
+            AppUser user = await this.appDbContext.Users.SingleAsync(c => c.Id == userId);
+            UserDto userDto = this.mapper.Map<UserDto>(user);
 
-            return customerDto;
+            return userDto;
         }
     }
 }

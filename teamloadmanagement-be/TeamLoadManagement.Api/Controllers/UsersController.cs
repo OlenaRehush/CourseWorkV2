@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TeamLoadManagement.DataAccess.Entities;
+using TeamLoadManagement.Api.Requests;
 using TeamLoadManagement.Services.Abstractions;
 
 namespace TeamLoadManagement.Api.Controllers
@@ -28,15 +28,15 @@ namespace TeamLoadManagement.Api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(string id)
         {
-            var user = await this.GetById(id);
+            var user = await this.usersService.GetById(id);
 
             return this.Ok(user);
         }
         
         [HttpPut]
-        public async Task<IActionResult> Update(AppUser appUser)
+        public async Task<IActionResult> Update(UpdateUserRequest request)
         {
-            var user = this.usersService.Update(appUser);
+            var user = this.usersService.Update(request.Id, request.FirstName, request.LastName);
 
             return this.Ok(user);
         }

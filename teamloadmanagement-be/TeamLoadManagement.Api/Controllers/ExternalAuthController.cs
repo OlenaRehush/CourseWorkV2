@@ -19,7 +19,7 @@ namespace TeamLoadManagement.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Facebook([FromBody]FacebookAuthRequest model)
         {
-            string token = await this.externalAuthService.ExternalLoginOrRegister(model.AccessToken);
+            var token = await this.externalAuthService.ExternalLoginOrRegister(model.AccessToken);
 
             if (token == null)
             {
