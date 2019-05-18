@@ -29,7 +29,7 @@ namespace TeamLoadManagement.Services
         public async Task<UserDto> GetData()
         {
             string userId = this.claimsPrincipal.FindFirstValue("id");
-            AppUser user = await this.appDbContext.Users.SingleAsync(c => c.Id == userId);
+            UserEntity user = await this.appDbContext.Users.SingleAsync(c => c.Id == userId);
             UserDto userDto = this.mapper.Map<UserDto>(user);
 
             return userDto;

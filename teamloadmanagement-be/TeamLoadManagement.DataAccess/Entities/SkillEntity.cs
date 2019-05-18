@@ -1,6 +1,8 @@
+using System.Collections.Generic;
+
 namespace TeamLoadManagement.DataAccess.Entities
 {
-    public class Skill
+    public class SkillEntity
     {
         public int Id { get; set; }
 
@@ -8,6 +10,6 @@ namespace TeamLoadManagement.DataAccess.Entities
 
         public string Description { get; set; }
 
-        // public IEnumerable<Customer> Customers { get; set; }
+        public IEnumerable<UserSkillEntity> UserSkills { get; set; }
     }
 }

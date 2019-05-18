@@ -129,7 +129,45 @@ namespace TeamLoadManagement.Api.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("TeamLoadManagement.DataAccess.Entities.AppUser", b =>
+            modelBuilder.Entity("TeamLoadManagement.DataAccess.Entities.SkillEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Skills");
+                });
+
+            modelBuilder.Entity("TeamLoadManagement.DataAccess.Entities.TaskEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description");
+
+                    b.Property<TimeSpan>("Estimate");
+
+                    b.Property<string>("Status");
+
+                    b.Property<string>("Title");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Tasks");
+                });
+
+            modelBuilder.Entity("TeamLoadManagement.DataAccess.Entities.UserEntity", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -188,38 +226,17 @@ namespace TeamLoadManagement.Api.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("TeamLoadManagement.DataAccess.Entities.Skill", b =>
+            modelBuilder.Entity("TeamLoadManagement.DataAccess.Entities.UserSkillEntity", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("UserId");
 
-                    b.Property<string>("Description");
+                    b.Property<int>("SkillId");
 
-                    b.Property<string>("Title");
+                    b.HasKey("UserId", "SkillId");
 
-                    b.HasKey("Id");
+                    b.HasIndex("SkillId");
 
-                    b.ToTable("Skills");
-                });
-
-            modelBuilder.Entity("TeamLoadManagement.DataAccess.Entities.UserTask", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description");
-
-                    b.Property<TimeSpan>("Estimate");
-
-                    b.Property<string>("Status");
-
-                    b.Property<string>("Title");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UserTasks");
+                    b.ToTable("UserSkills");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -232,7 +249,7 @@ namespace TeamLoadManagement.Api.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("TeamLoadManagement.DataAccess.Entities.AppUser")
+                    b.HasOne("TeamLoadManagement.DataAccess.Entities.UserEntity")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -240,7 +257,7 @@ namespace TeamLoadManagement.Api.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("TeamLoadManagement.DataAccess.Entities.AppUser")
+                    b.HasOne("TeamLoadManagement.DataAccess.Entities.UserEntity")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -253,7 +270,7 @@ namespace TeamLoadManagement.Api.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("TeamLoadManagement.DataAccess.Entities.AppUser")
+                    b.HasOne("TeamLoadManagement.DataAccess.Entities.UserEntity")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -261,8 +278,28 @@ namespace TeamLoadManagement.Api.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("TeamLoadManagement.DataAccess.Entities.AppUser")
+                    b.HasOne("TeamLoadManagement.DataAccess.Entities.UserEntity")
                         .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("TeamLoadManagement.DataAccess.Entities.TaskEntity", b =>
+                {
+                    b.HasOne("TeamLoadManagement.DataAccess.Entities.UserEntity", "User")
+                        .WithMany("Tasks")
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("TeamLoadManagement.DataAccess.Entities.UserSkillEntity", b =>
+                {
+                    b.HasOne("TeamLoadManagement.DataAccess.Entities.SkillEntity", "Skill")
+                        .WithMany("UserSkills")
+                        .HasForeignKey("SkillId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("TeamLoadManagement.DataAccess.Entities.UserEntity", "User")
+                        .WithMany("UserSkills")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

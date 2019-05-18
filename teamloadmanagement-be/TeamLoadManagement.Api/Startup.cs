@@ -49,7 +49,7 @@ namespace TeamLoadManagement.Api
                     this.Configuration.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly("TeamLoadManagement.Api")));
 
-            var builder = services.AddIdentityCore<AppUser>(o =>
+            var builder = services.AddIdentityCore<UserEntity>(o =>
             {
                 o.Password.RequireDigit = false;
                 o.Password.RequireLowercase = false;

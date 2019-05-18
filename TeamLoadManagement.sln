@@ -11,13 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamLoadManagement.Services
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamLoadManagement.Services.Abstractions", "teamloadmanagement-be\TeamLoadManagement.Services.Abstractions\TeamLoadManagement.Services.Abstractions.csproj", "{4ACCCDA9-2F43-4578-AA4B-A52AC75A2738}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Di", "teamloadmanagement-be\Di", "{FC91D3F5-1099-4D2F-92E9-7121A89484B4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Di", "Di", "{FC91D3F5-1099-4D2F-92E9-7121A89484B4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamLoadManagement.Services.Di", "teamloadmanagement-be\Di\TeamLoadManagement.Services.Di\TeamLoadManagement.Services.Di.csproj", "{B486FB94-1CDA-413A-B815-1380D0FAC50E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamLoadManagement.Dto", "teamloadmanagement-be\TeamLoadManagement.Dto\TeamLoadManagement.Dto.csproj", "{42BFF146-4DB4-4ADB-88AE-52CB326AD774}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "teamloadmanagement-be\SolutionItems", "{35182635-63FE-4DFC-A219-2FB6616C76E9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{35182635-63FE-4DFC-A219-2FB6616C76E9}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.ruleset = .ruleset

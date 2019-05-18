@@ -7,13 +7,13 @@ namespace TeamLoadManagement.Services.Abstractions
 {
     public interface ITasksService
     {
-        Task<IEnumerable<UserTask>> GetAll();
+        Task<IEnumerable<TaskEntity>> GetAll();
 
-        Task<UserTask> GetById(int id);
+        Task<TaskEntity> GetById(int id);
 
-        Task<UserTask> Create(string description, string title, TimeSpan estimate, string status);
+        Task<TaskEntity> Create(string description, string title, TimeSpan estimate, string status);
 
-        Task<UserTask> Update(int id, string description, string title, TimeSpan estimate, string status);
+        Task<TaskEntity> Update(int id, string description, string title, TimeSpan estimate, string status);
 
         Task Delete(int id);
     }

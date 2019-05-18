@@ -2,9 +2,11 @@ using System;
 
 namespace TeamLoadManagement.DataAccess.Entities
 {
-    public class UserTask
+    public class TaskEntity
     {
         public int Id { get; set; }
+
+        public string UserId { get; set; }
 
         public string Title { get; set; }
 
@@ -15,6 +17,6 @@ namespace TeamLoadManagement.DataAccess.Entities
         // replace with enum 
         public string Status { get; set; }
 
-        // public IEnumerable<Customer> Customers { get; set; }
+        public UserEntity User { get; set; }
     }
 }

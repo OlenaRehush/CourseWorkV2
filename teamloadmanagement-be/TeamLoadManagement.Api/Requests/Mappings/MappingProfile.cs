@@ -8,9 +8,9 @@ namespace TeamLoadManagement.Api.Requests.Mappings
     {
         public MappingProfile()
         {
-            this.CreateMap<RegistrationRequest, AppUser>().ForMember(au => au.UserName, map => map.MapFrom(vm => vm.Email));
+            this.CreateMap<RegistrationRequest, UserEntity>().ForMember(au => au.UserName, map => map.MapFrom(vm => vm.Email));
 
-            this.CreateMap<AppUser, UserDto>();
+            this.CreateMap<UserEntity, UserDto>();
         }
     }
 }

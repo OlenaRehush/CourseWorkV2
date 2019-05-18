@@ -24,7 +24,7 @@ namespace TeamLoadManagement.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Register([FromBody]RegistrationRequest model)
         {
-            var userIdentity = this.mapper.Map<AppUser>(model);
+            var userIdentity = this.mapper.Map<UserEntity>(model);
 
             var succeeded = await this.accountsService.TryRegisterUserAsync(userIdentity, model.Password);
 

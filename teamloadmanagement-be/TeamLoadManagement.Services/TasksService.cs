@@ -17,9 +17,9 @@ namespace TeamLoadManagement.Services
             this.dbContext = dbContext;
         }
 
-        public async Task<UserTask> Create(string description, string title, TimeSpan estimate, string status)
+        public async Task<TaskEntity> Create(string description, string title, TimeSpan estimate, string status)
         {
-            var task = new UserTask
+            var task = new TaskEntity
             {
                 Description = description,
                 Title = title,
@@ -27,7 +27,7 @@ namespace TeamLoadManagement.Services
                 Status = status
             };
 
-            this.dbContext.UserTasks.Add(task);
+            this.dbContext.Tasks.Add(task);
 
             await this.dbContext.SaveChangesAsync();
 
@@ -36,37 +36,37 @@ namespace TeamLoadManagement.Services
 
         public async Task Delete(int id)
         {
-            var task = await this.dbContext.UserTasks.FirstOrDefaultAsync(x => x.Id == id);
+            var task = await this.dbContext.Tasks.FirstOrDefaultAsync(x => x.Id == id);
 
             this.dbContext.Remove(task);
 
             await this.dbContext.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<UserTask>> GetAll()
+        public async Task<IEnumerable<TaskEntity>> GetAll()
         {
-            var tasks = await this.dbContext.UserTasks.AsNoTracking().ToListAsync();
+            var tasks = await this.dbContext.Tasks.AsNoTracking().ToListAsync();
 
             return tasks;
         }
 
-        public async Task<UserTask> GetById(int id)
+        public async Task<TaskEntity> GetById(int id)
         {
-            var task = await this.dbContext.UserTasks.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
+            var task = await this.dbContext.Tasks.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
 
             return task;
         }
 
-        public async Task<UserTask> Update(int id, string description, string title, TimeSpan estimate, string status)
+        public async Task<TaskEntity> Update(int id, string description, string title, TimeSpan estimate, string status)
         {
-            var task = await this.dbContext.UserTasks.FirstOrDefaultAsync(x => x.Id == id);
+            var task = await this.dbContext.Tasks.FirstOrDefaultAsync(x => x.Id == id);
 
             task.Description = description;
             task.Title = title;
             task.Estimate = estimate;
             task.Status = status;
 
-            this.dbContext.UserTasks.Update(task);
+            this.dbContext.Tasks.Update(task);
 
             await this.dbContext.SaveChangesAsync();
 

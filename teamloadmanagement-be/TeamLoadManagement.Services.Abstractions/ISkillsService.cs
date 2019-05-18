@@ -6,13 +6,13 @@ namespace TeamLoadManagement.Services.Abstractions
 {
     public interface ISkillsService
     {
-        Task<IEnumerable<Skill>> GetAll();
+        Task<IEnumerable<SkillEntity>> GetAll();
 
-        Task<Skill> GetById(int id);
+        Task<SkillEntity> GetById(int id);
 
-        Task<Skill> Create(string description, string title);
+        Task<SkillEntity> Create(string description, string title);
 
-        Task<Skill> Update(int id, string description, string title);
+        Task<SkillEntity> Update(int id, string description, string title);
 
         Task Delete(int id);
     }

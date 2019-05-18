@@ -16,9 +16,9 @@ namespace TeamLoadManagement.Services
             this.dbContext = dbContext;
         }
 
-        public async Task<Skill> Create(string description, string title)
+        public async Task<SkillEntity> Create(string description, string title)
         {
-            var skill = new Skill
+            var skill = new SkillEntity
             {
                 Description = description,
                 Title = title
@@ -39,21 +39,21 @@ namespace TeamLoadManagement.Services
             await this.dbContext.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Skill>> GetAll()
+        public async Task<IEnumerable<SkillEntity>> GetAll()
         {
             var skills = await this.dbContext.Skills.AsNoTracking().ToListAsync();
 
             return skills;
         }
 
-        public async Task<Skill> GetById(int id)
+        public async Task<SkillEntity> GetById(int id)
         {
             var skill = await this.dbContext.Skills.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
 
             return skill;
         }
 
-        public async Task<Skill> Update(int id, string description, string title)
+        public async Task<SkillEntity> Update(int id, string description, string title)
         {
             var skill = await this.dbContext.Skills.FirstOrDefaultAsync(x => x.Id == id);
 
