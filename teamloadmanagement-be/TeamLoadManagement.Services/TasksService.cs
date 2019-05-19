@@ -71,7 +71,6 @@ namespace TeamLoadManagement.Services
                 .AsNoTracking()
                 .Select(this.expression)
                 .FirstOrDefaultAsync(x => x.Id == id);
-
         }
 
         public async Task Update(int id, string description, string title, double estimate, string status, string userId)

@@ -14,7 +14,7 @@ namespace TeamLoadManagement.Api.Controllers
         public SkillsController(ISkillsService skillsService)
         {
             this.skillsService = skillsService;
-        }
+        } 
 
         [HttpGet]
         public async Task<IActionResult> GetAll()

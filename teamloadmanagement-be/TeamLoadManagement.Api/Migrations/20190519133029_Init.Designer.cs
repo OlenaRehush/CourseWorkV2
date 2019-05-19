@@ -10,7 +10,7 @@ using TeamLoadManagement.DataAccess;
 namespace TeamLoadManagement.Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190518084930_Init")]
+    [Migration("20190519133029_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -137,8 +137,6 @@ namespace TeamLoadManagement.Api.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Description");
-
                     b.Property<string>("Title");
 
                     b.HasKey("Id");
@@ -154,7 +152,9 @@ namespace TeamLoadManagement.Api.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<TimeSpan>("Estimate");
+                    b.Property<double>("Estimate");
+
+                    b.Property<double>("Remaining");
 
                     b.Property<string>("Status");
 
@@ -178,6 +178,8 @@ namespace TeamLoadManagement.Api.Migrations
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
+
+                    b.Property<string>("Description");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256);
