@@ -8,8 +8,6 @@ namespace TeamLoadManagement.DataAccess.Entities
 
         public string Title { get; set; }
 
-        public string Description { get; set; }
-
-        public IEnumerable<UserSkillEntity> UserSkills { get; set; }
+        public ICollection<UserSkillEntity> UserSkills { get; set; }
     }
 }

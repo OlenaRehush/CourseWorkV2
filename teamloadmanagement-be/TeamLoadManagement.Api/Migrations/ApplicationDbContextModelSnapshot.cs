@@ -135,8 +135,6 @@ namespace TeamLoadManagement.Api.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Description");
-
                     b.Property<string>("Title");
 
                     b.HasKey("Id");
@@ -152,7 +150,9 @@ namespace TeamLoadManagement.Api.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<TimeSpan>("Estimate");
+                    b.Property<double>("Estimate");
+
+                    b.Property<double>("Remaining");
 
                     b.Property<string>("Status");
 
@@ -176,6 +176,8 @@ namespace TeamLoadManagement.Api.Migrations
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
+
+                    b.Property<string>("Description");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256);

@@ -15,8 +15,8 @@ namespace TeamLoadManagement.DataAccess.Entities
 
         public string PictureUrl { get; set; }
 
-        public IEnumerable<TaskEntity> Tasks { get; set; }
+        public ICollection<TaskEntity> Tasks { get; set; }
 
-        public IEnumerable<UserSkillEntity> UserSkills { get; set; }
+        public ICollection<UserSkillEntity> UserSkills { get; set; }
     }
 }

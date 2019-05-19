@@ -44,6 +44,7 @@ namespace TeamLoadManagement.Api.Migrations
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     FacebookId = table.Column<long>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
                     PictureUrl = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -57,8 +58,7 @@ namespace TeamLoadManagement.Api.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Title = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true)
+                    Title = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -180,7 +180,8 @@ namespace TeamLoadManagement.Api.Migrations
                     UserId = table.Column<string>(nullable: true),
                     Title = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    Estimate = table.Column<TimeSpan>(nullable: false),
+                    Estimate = table.Column<double>(nullable: false),
+                    Remaining = table.Column<double>(nullable: false),
                     Status = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
