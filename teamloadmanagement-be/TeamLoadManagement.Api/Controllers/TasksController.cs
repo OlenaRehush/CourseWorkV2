@@ -37,17 +37,28 @@ namespace TeamLoadManagement.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody]CreateTaskRequest request)
         {
-            var task = await this.tasksService.Create(request.Description, request.Title, request.Estimate, request.Status);
+             await this.tasksService.Create(
+                request.Description,
+                request.Title,
+                request.Estimate,
+                request.Status,
+                request.UserId);
 
-            return this.StatusCode(StatusCodes.Status201Created, task);
+            return this.StatusCode(StatusCodes.Status201Created);
         }
 
         [HttpPut]
         public async Task<IActionResult> Update([FromBody]UpdateTaskRequest request)
         {
-            var task = await this.tasksService.Update(request.Id, request.Description, request.Title, request.Estimate, request.Status);
+            await this.tasksService.Update(
+                request.Id,
+                request.Description,
+                request.Title,
+                request.Estimate,
+                request.Status,
+                request.UserId);
 
-            return this.Ok(task);
+            return this.NoContent();
         }
 
         [HttpDelete("{id}")]
