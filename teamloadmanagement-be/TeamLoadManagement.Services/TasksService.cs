@@ -17,14 +17,15 @@ namespace TeamLoadManagement.Services
             this.dbContext = dbContext;
         }
 
-        public async Task<TaskEntity> Create(string description, string title, TimeSpan estimate, string status)
+        public async Task<TaskEntity> Create(string description, string title, TimeSpan estimate, string status, string userId)
         {
             var task = new TaskEntity
             {
                 Description = description,
                 Title = title,
                 Estimate = estimate,
-                Status = status
+                Status = status,
+                UserId = userId
             };
 
             this.dbContext.Tasks.Add(task);
@@ -57,7 +58,7 @@ namespace TeamLoadManagement.Services
             return task;
         }
 
-        public async Task<TaskEntity> Update(int id, string description, string title, TimeSpan estimate, string status)
+        public async Task<TaskEntity> Update(int id, string description, string title, TimeSpan estimate, string status, string userId)
         {
             var task = await this.dbContext.Tasks.FirstOrDefaultAsync(x => x.Id == id);
 
@@ -65,6 +66,7 @@ namespace TeamLoadManagement.Services
             task.Title = title;
             task.Estimate = estimate;
             task.Status = status;
+            task.UserId = userId;
 
             this.dbContext.Tasks.Update(task);
 

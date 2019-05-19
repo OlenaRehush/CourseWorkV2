@@ -35,7 +35,7 @@ namespace TeamLoadManagement.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateTaskRequest request)
+        public async Task<IActionResult> Create([FromBody]CreateTaskRequest request)
         {
             var task = await this.tasksService.Create(request.Description, request.Title, request.Estimate, request.Status);
 
@@ -43,7 +43,7 @@ namespace TeamLoadManagement.Api.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(UpdateTaskRequest request)
+        public async Task<IActionResult> Update([FromBody]UpdateTaskRequest request)
         {
             var task = await this.tasksService.Update(request.Id, request.Description, request.Title, request.Estimate, request.Status);
 

@@ -14,5 +14,7 @@ namespace TeamLoadManagement.Api.Requests
 
         // replace with enum 
         public string Status { get; set; }
+
+        public string UserId { get; set; }
     }
 }

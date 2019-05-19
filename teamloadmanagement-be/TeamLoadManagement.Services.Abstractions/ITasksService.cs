@@ -11,9 +11,9 @@ namespace TeamLoadManagement.Services.Abstractions
 
         Task<TaskEntity> GetById(int id);
 
-        Task<TaskEntity> Create(string description, string title, TimeSpan estimate, string status);
+        Task<TaskEntity> Create(string description, string title, TimeSpan estimate, string status, string userId);
 
-        Task<TaskEntity> Update(int id, string description, string title, TimeSpan estimate, string status);
+        Task<TaskEntity> Update(int id, string description, string title, TimeSpan estimate, string status, string userId);
 
         Task Delete(int id);
     }
