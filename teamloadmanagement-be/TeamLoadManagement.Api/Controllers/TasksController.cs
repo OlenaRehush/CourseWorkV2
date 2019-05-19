@@ -1,5 +1,4 @@
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TeamLoadManagement.Api.Requests;
@@ -7,7 +6,6 @@ using TeamLoadManagement.Services.Abstractions;
 
 namespace TeamLoadManagement.Api.Controllers
 {
-    [Authorize(Policy = "ApiUser")]
     [Route("api/[controller]")]
     public class TasksController : Controller
     {
@@ -35,7 +33,7 @@ namespace TeamLoadManagement.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateTaskRequest request)
+        public async Task<IActionResult> Create([FromBody]CreateTaskRequest request)
         {
             var task = await this.tasksService.Create(request.Description, request.Title, request.Estimate, request.Status);
 
