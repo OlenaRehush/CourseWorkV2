@@ -11,7 +11,7 @@
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input name="user" matInput placeholder="User" [(ngModel)]="task.user">
+      <input disabled name="user" matInput placeholder="User" [(ngModel)]="task.userName">
       <mat-icon matSuffix (click)="assign()">assignment_ind</mat-icon>
     </mat-form-field>
 
@@ -21,7 +21,7 @@
 
     <mat-progress-bar mode="determinate" value="progressValue"></mat-progress-bar>
   </form>
-
+  <button mat-raised-button (click)="logTime()">Log time</button>
   <button mat-raised-button color="primary" (click)="update()">Update</button>
 </mat-card>
 

@@ -36,7 +36,7 @@ export class AssignDialogComponent implements OnInit {
   }
 
   select(value){
-    this.selectedValue = value;
+    this.selectedValue = value.id;
   }
 
   onNoClick(): void {

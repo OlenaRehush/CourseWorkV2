@@ -54,7 +54,7 @@ export class TasksService extends ApiService {
   public updateTask(task: Task): Observable<Task>{
     let newTask = new AsyncSubject<Task>();
 
-    this.httpPatch(`${this.apiUrl}/tasks/`, task).subscribe(result => {
+    this.httpPut(`${this.apiUrl}/tasks/`, task).subscribe(result => {
       this.tasksArray.push(result);
       newTask.next(result);
       newTask.complete();

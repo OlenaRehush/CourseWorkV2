@@ -54,6 +54,15 @@ export class ApiService {
         )
     }
 
+    protected httpPut(url: string, body: any): Observable<any> {
+        this.spinner.show();
+        return this.httpClient.put(url, body, { headers: this.headers }).pipe(
+            finalize(() => {
+                this.spinner.hide();
+            })
+        )
+    }
+
     protected httpPatch(url: string, body: any): Observable<any> {
         this.spinner.show();
         return this.httpClient.patch(url, body, { headers: this.headers }).pipe(

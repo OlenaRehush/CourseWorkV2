@@ -15,6 +15,7 @@ const TaskCreatedAction = "OK";
 export class CreateTaskPageComponent implements OnInit {
 
   users;
+  selectedUserId;
 
   constructor(public tasksService: TasksService,
     public router: Router,
@@ -29,6 +30,7 @@ export class CreateTaskPageComponent implements OnInit {
 
   onSubmit({ value, valid }) {
     if (valid) {
+      value.userId = this.selectedUserId;
 
       this.tasksService.createTask(value).subscribe(task => {
         this.snackBar.open(TaskCreatedString, TaskCreatedAction, {

@@ -5,13 +5,16 @@ import { UsersRoutingModule } from './users-routing';
 import { NgMaterialModule } from '../ng-material.module';
 import { UsersTableComponent } from './components/users-table/users-table.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 @NgModule({
   declarations: [UsersPageComponent, UsersTableComponent, UserPageComponent],
   imports: [
     CommonModule,
     UsersRoutingModule,
-    NgMaterialModule
+    NgMaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     UsersRoutingModule

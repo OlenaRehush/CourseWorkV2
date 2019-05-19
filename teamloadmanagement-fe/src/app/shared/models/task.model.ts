@@ -5,5 +5,6 @@ export class Task{
     progress: any;
     estimate: number;
     remaining: number;
-    user: any;
+    userId:string;
+    userName: string;
 }

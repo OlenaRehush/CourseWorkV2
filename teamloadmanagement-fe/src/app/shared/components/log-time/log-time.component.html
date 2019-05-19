@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Log time</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput name="logTime" type="number" [(ngModel)]="loggedHours" required placeholder="Estimate" min="0" />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="loggedHours" cdkFocusInitial>Log</button>
+</div>

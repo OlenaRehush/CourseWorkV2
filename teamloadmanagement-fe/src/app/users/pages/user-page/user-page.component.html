@@ -1,3 +1,44 @@
-<div *ngIf="user">
-  {{user}}
-</div>
+<h1 id="userName"></h1>
+
+<mat-card>
+  <form class="task-page-form">
+    <mat-form-field class="example-full-width">
+      <input name="firstName" matInput placeholder="First Name" [(ngModel)]="user.firstName">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input name="lastName" matInput placeholder="Last Name" [(ngModel)]="user.lastName">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <textarea name="description" [(ngModel)]="user.description" matInput placeholder="Description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="example-chip-list">
+      <mat-chip-list #chipList>
+        <mat-chip
+          *ngFor="let skill of skills"
+          [selectable]="selectable"
+          [removable]="removable"
+          (removed)="remove(skill)">
+          {{skill}}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input
+          placeholder="New skill..."
+          #skillInput
+          [formControl]="skillCtrl"
+          [matAutocomplete]="auto"
+          [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          [matChipInputAddOnBlur]="addOnBlur"
+          (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        <mat-option *ngFor="let skill of filteredSkills | async" [value]="skill">
+          {{skill}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</mat-card>

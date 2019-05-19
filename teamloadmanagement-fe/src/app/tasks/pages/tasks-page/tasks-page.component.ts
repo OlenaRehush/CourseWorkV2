@@ -70,7 +70,11 @@ export class TasksPageComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-
+      let updatedTask = $event;
+      updatedTask.userId = result;
+      this.tasksService.updateTask(updatedTask).subscribe(result=>{
+        
+      })
     });
   }
 

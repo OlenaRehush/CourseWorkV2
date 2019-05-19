@@ -16,7 +16,6 @@ export class UserService extends BaseService {
   authNavStatus$ = this._authNavStatusSource.asObservable();
 
   private loggedIn = false;
-  public id;
 
   constructor(private http: Http) {
     super();
@@ -48,8 +47,8 @@ export class UserService extends BaseService {
       .map(res => res.json())
       .map(res => {
         localStorage.setItem('auth_token', res.auth_token);
+        localStorage.setItem('currentUserId', res.id);
         this.loggedIn = true;
-        this.id = res.id;
         this._authNavStatusSource.next(true);
         return true;
       })

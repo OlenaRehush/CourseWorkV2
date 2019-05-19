@@ -20,7 +20,7 @@ export class TasksStatisticComponent implements OnInit {
   completeTasks: number;
 
   ngOnInit() {
-    this.unassignedTasksLength = this.tasks.filter(x => x.user == null).length;
+    this.unassignedTasksLength = this.tasks.filter(x => x.userId == null).length;
     this.buildUnassignTasksChart();
 
     this.newTasks = this.tasks.filter(x => x.progress == "to do").length;

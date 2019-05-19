@@ -2,18 +2,23 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AssignDialogComponent } from './components/assign-dialog/assign-dialog.component';
 import { NgMaterialModule } from '../ng-material.module';
+import { LogTimeComponent } from './components/log-time/log-time.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-    declarations: [AssignDialogComponent],
+    declarations: [AssignDialogComponent, LogTimeComponent],
     imports: [
         CommonModule,
-        NgMaterialModule
+        NgMaterialModule,
+        FormsModule
     ],
     exports: [
-        AssignDialogComponent
+        AssignDialogComponent,
+        LogTimeComponent
     ],
     entryComponents:[
-        AssignDialogComponent
+        AssignDialogComponent,
+        LogTimeComponent
     ]
 })
 export class SharedModule { }
