@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace TeamLoadManagement.Api.Migrations
+namespace TeamLoadManagement.DataAccess.Migrations
 {
-    public partial class Init : Migration
+    public partial class OlenaRakushka : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -182,7 +182,7 @@ namespace TeamLoadManagement.Api.Migrations
                     Description = table.Column<string>(nullable: true),
                     Estimate = table.Column<double>(nullable: false),
                     Remaining = table.Column<double>(nullable: false),
-                    Status = table.Column<string>(nullable: true)
+                    Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

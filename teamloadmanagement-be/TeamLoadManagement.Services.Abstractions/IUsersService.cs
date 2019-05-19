@@ -11,5 +11,7 @@ namespace TeamLoadManagement.Services.Abstractions
         Task<UserDto> GetById(string id);
 
         Task Update(string id, string firstName, string lastName, string description, List<string> skills);
+
+        Task AssignTask(string id, List<int> taskIds);
     }
 }

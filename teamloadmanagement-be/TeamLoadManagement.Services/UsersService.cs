@@ -30,7 +30,8 @@ namespace TeamLoadManagement.Services
                 Status = t.Status,
                 Estimate = t.Estimate,
                 Id = t.Id,
-                UserName = t.User.FirstName + " " + t.User.LastName
+                UserName = t.User.FirstName + " " + t.User.LastName,
+                UserId = t.UserId
             })
         };
 
@@ -86,6 +87,15 @@ namespace TeamLoadManagement.Services
             }
 
             this.dbContext.Users.Update(user);
+
+            await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task AssignTask(string id, List<int> taskIds)
+        {
+            var tasks = await this.dbContext.Tasks.Where(x => taskIds.Contains(x.Id)).ToListAsync();
+
+            tasks.ForEach(x => x.UserId = id);
 
             await this.dbContext.SaveChangesAsync();
         }

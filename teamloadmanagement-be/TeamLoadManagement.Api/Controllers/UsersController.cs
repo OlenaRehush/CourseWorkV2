@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TeamLoadManagement.Api.Requests;
 using TeamLoadManagement.Services.Abstractions;
+using TeamLoadManagement.Services.Helpers;
 
 namespace TeamLoadManagement.Api.Controllers
 {
@@ -38,7 +40,15 @@ namespace TeamLoadManagement.Api.Controllers
         {
             await this.usersService.Update(request.Id, request.FirstName, request.LastName, request.Description, request.Skills);
 
-            return this.Ok();
+            return this.NoContent();
+        }
+
+        [HttpPut("{id}/assignTasks")]
+        public async Task<IActionResult> AssignTasks(string id, [FromBody] List<int> taskIds)
+        {
+            await this.usersService.AssignTask(id, taskIds);
+
+            return this.NoContent();
         }
     }
 }
