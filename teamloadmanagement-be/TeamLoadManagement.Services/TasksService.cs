@@ -4,10 +4,12 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using TeamLoadManagement.DataAccess;
 using TeamLoadManagement.DataAccess.Entities;
 using TeamLoadManagement.Dto;
 using TeamLoadManagement.Services.Abstractions;
+using TaskStatus = TeamLoadManagement.Dto.TaskStatus;
 
 namespace TeamLoadManagement.Services
 {
@@ -23,7 +25,8 @@ namespace TeamLoadManagement.Services
             Status = x.Status,
             Estimate = x.Estimate,
             Id = x.Id,
-            UserName = x.User.FirstName + " " + x.User.LastName
+            UserName = x.User.FirstName + " " + x.User.LastName,
+            UserId = x.UserId
         };
 
         public TasksService(ApplicationDbContext dbContext)
@@ -31,7 +34,7 @@ namespace TeamLoadManagement.Services
             this.dbContext = dbContext;
         }
 
-        public async Task Create(string description, string title, double estimate, string status, string userId)
+        public async Task Create(string description, string title, double estimate, string userId)
         {
             var task = new TaskEntity
             {
@@ -39,7 +42,7 @@ namespace TeamLoadManagement.Services
                 Title = title,
                 Estimate = estimate,
                 Remaining = estimate,
-                Status = status,
+                Status = TaskStatus.NotStarted,
                 UserId = userId
             };
 
@@ -53,6 +56,17 @@ namespace TeamLoadManagement.Services
             var task = await this.dbContext.Tasks.FirstOrDefaultAsync(x => x.Id == id);
 
             this.dbContext.Remove(task);
+
+            await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task LogTime(int id, double time)
+        {
+            var task = await this.dbContext.Tasks.FirstOrDefaultAsync(x => x.Id == id);
+
+            task.Remaining -= time;
+
+            this.dbContext.Tasks.Update(task);
 
             await this.dbContext.SaveChangesAsync();
         }
@@ -73,7 +87,7 @@ namespace TeamLoadManagement.Services
                 .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task Update(int id, string description, string title, double estimate, string status, string userId)
+        public async Task Update(int id, string description, string title, double estimate, TaskStatus status, string userId)
         {
             var task = await this.dbContext.Tasks.FirstOrDefaultAsync(x => x.Id == id);
 
