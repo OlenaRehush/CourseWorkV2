@@ -34,7 +34,7 @@ namespace TeamLoadManagement.Api.Controllers
         }
         
         [HttpPut]
-        public async Task<IActionResult> Update(UpdateUserRequest request)
+        public async Task<IActionResult> Update([FromBody]UpdateUserRequest request)
         {
             var user = this.usersService.Update(request.Id, request.FirstName, request.LastName);
 

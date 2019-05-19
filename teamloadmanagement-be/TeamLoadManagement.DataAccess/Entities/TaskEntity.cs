@@ -1,5 +1,3 @@
-using System;
-
 namespace TeamLoadManagement.DataAccess.Entities
 {
     public class TaskEntity
@@ -12,7 +10,9 @@ namespace TeamLoadManagement.DataAccess.Entities
 
         public string Description { get; set; }
 
-        public TimeSpan Estimate { get; set; }
+        public double Estimate { get; set; }
+
+        public double Remaining { get; set; }
 
         // replace with enum 
         public string Status { get; set; }

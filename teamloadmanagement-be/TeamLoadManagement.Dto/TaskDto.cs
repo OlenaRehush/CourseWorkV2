@@ -1,6 +1,6 @@
-namespace TeamLoadManagement.Api.Requests
+namespace TeamLoadManagement.Dto
 {
-    public class UpdateTaskRequest
+    public class TaskDto
     {
         public int Id { get; set; }
 
@@ -10,9 +10,11 @@ namespace TeamLoadManagement.Api.Requests
 
         public double Estimate { get; set; }
 
+        public double Remaining { get; set; }
+
         // replace with enum 
         public string Status { get; set; }
 
-        public string UserId { get; set; }
+        public string UserName { get; set; }
     }
 }

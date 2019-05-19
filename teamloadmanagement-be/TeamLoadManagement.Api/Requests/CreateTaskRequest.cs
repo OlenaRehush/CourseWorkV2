@@ -1,5 +1,3 @@
-using System;
-
 namespace TeamLoadManagement.Api.Requests
 {
     public class CreateTaskRequest
@@ -8,9 +6,11 @@ namespace TeamLoadManagement.Api.Requests
 
         public string Description { get; set; }
 
-        public TimeSpan Estimate { get; set; }
+        public double Estimate { get; set; }
 
         // replace with enum 
         public string Status { get; set; }
+
+        public string UserId { get; set; }
     }
 }
