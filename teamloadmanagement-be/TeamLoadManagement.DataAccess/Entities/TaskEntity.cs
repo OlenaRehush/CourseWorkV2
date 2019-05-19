@@ -1,3 +1,5 @@
+using TeamLoadManagement.Dto;
+
 namespace TeamLoadManagement.DataAccess.Entities
 {
     public class TaskEntity
@@ -14,8 +16,7 @@ namespace TeamLoadManagement.DataAccess.Entities
 
         public double Remaining { get; set; }
 
-        // replace with enum 
-        public string Status { get; set; }
+        public TaskStatus Status { get; set; }
 
         public UserEntity User { get; set; }
     }

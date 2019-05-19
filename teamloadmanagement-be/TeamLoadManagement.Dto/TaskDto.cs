@@ -12,9 +12,10 @@ namespace TeamLoadManagement.Dto
 
         public double Remaining { get; set; }
 
-        // replace with enum 
-        public string Status { get; set; }
+        public TaskStatus Status { get; set; }
 
         public string UserName { get; set; }
+
+        public string UserId { get; set; }
     }
 }

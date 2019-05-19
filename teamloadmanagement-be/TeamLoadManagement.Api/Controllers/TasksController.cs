@@ -41,7 +41,6 @@ namespace TeamLoadManagement.Api.Controllers
                 request.Description,
                 request.Title,
                 request.Estimate,
-                request.Status,
                 request.UserId);
 
             return this.StatusCode(StatusCodes.Status201Created);
@@ -65,6 +64,14 @@ namespace TeamLoadManagement.Api.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             await this.tasksService.Delete(id);
+
+            return this.NoContent();
+        }
+
+        [HttpPut("{id}/logtime")]
+        public async Task<IActionResult> LogTime(int id, [FromBody] double time)
+        {
+            await this.tasksService.LogTime(id, time);
 
             return this.NoContent();
         }
