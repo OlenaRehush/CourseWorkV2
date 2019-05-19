@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TeamLoadManagement.Api.Requests;
@@ -6,6 +7,7 @@ using TeamLoadManagement.Services.Abstractions;
 
 namespace TeamLoadManagement.Api.Controllers
 {
+    [Authorize(Policy = "ApiUser")]
     [Route("api/[controller]")]
     public class TasksController : Controller
     {

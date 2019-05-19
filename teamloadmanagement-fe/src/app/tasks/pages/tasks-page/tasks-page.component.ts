@@ -3,7 +3,7 @@ import { Task } from '../../../shared/models';
 import { TasksService } from '../../services/tasks.service';
 import { AppService } from '../../../shared/services/app.service';
 import { UsersService } from '../../../users/services/users.service';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { AssignDialogComponent } from '../../../shared/components/assign-dialog/assign-dialog.component';
 import { MatSnackBar } from '@angular/material';
 
