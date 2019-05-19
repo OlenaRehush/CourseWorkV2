@@ -54,8 +54,4 @@ export class TasksTableComponent implements OnInit {
   assign(element) {
     this.assignTaskEvent.emit(element);
   }
-
-  edit(element) {
-
-  }
 }

@@ -1,23 +1,18 @@
-<!-- <mat-grid-list cols="10" rowHeight="50px">
-  <mat-grid-tile [colspan]="1">
-    <div class="text-inside-grid">
-      <mat-icon svgIcon="assignment"></mat-icon>
-    </div>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="9">
-    <div class="text-inside-grid">
-      <input class="title-input" [(ngModel)]="task.title">
-    </div>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="1">
-    <div class="text-inside-grid">3</div>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="9">
-    <div class="text-inside-grid">4</div>
-  </mat-grid-tile>
-</mat-grid-list> -->
+<h1>{{task.title}}</h1>
 
-<div class="task-page-grid-list" *ngIf="task">
+<mat-card *ngIf="task">
+  <form class="task-page-form" #f="ngForm" novalidate (ngSubmit)="onSubmit(f)">
+    <mat-form-field class="example-full-width">
+      <input id="title" name="title" matInput placeholder="Title" [(ngModel)]="task.title">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <textarea id="description" name="description" [(ngModel)]="task.description" matInput placeholder="Description"></textarea>
+    </mat-form-field>
+  </form>
+</mat-card>
+
+<!-- <div class="task-page-grid-list" *ngIf="task">
   <div>
     <input class="title-input" [(ngModel)]="task.title">
   </div>
@@ -42,4 +37,4 @@
   <div>
     <button mat-raised-button color="primary">Save</button>
   </div>
-</div>
+</div> -->

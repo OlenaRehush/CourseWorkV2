@@ -5,6 +5,7 @@ import { AppService } from '../../../shared/services/app.service';
 import { UsersService } from '../../../users/services/users.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { AssignDialogComponent } from '../../../shared/components/assign-dialog/assign-dialog.component';
+import { MatSnackBar } from '@angular/material';
 
 enum TaskState {
   "To do",
@@ -28,7 +29,8 @@ export class TasksPageComponent implements OnInit {
   constructor(public tasksService: TasksService,
     public usersService: UsersService,
     public appService: AppService,
-    public dialog: MatDialog) {
+    public dialog: MatDialog,
+    public snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
@@ -53,7 +55,10 @@ export class TasksPageComponent implements OnInit {
   delete($event) {
     if ($event) {
       this.tasksService.deleteTask($event.id).subscribe(result => {
-
+        this.snackBar.open("Task deleted", "Ok", {
+          duration: 2000,
+        });
+        this.loadTasks();
       });
     }
   }
