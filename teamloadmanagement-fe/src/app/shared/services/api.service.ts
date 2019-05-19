@@ -10,8 +10,8 @@ import { map, catchError } from 'rxjs/operators';
 })
 export class ApiService {
     //protected apiUrl = (`${document.location.host}/api/`);
-    protected apiUrl = 'http://localhost:3000';
-    private headers: HttpHeaders;
+    protected apiUrl = '/api';
+    private headers: any;
     private options: any;
     private httpClient: HttpClient;
     private spinner: NgxSpinnerService;
@@ -19,14 +19,10 @@ export class ApiService {
     constructor(injector: Injector) {
         this.httpClient = injector.get(HttpClient);
         this.spinner = injector.get(NgxSpinnerService);
-        this.headers = new HttpHeaders({
-            'Content-Type': 'application/json',
-            'Accept': 'q=0.8;application/json;q=0.9'
-        });
-
-        this.options = {
-            headers: this.headers
-        };
+        this.headers = new Headers();
+        this.headers.append('Content-Type', 'application/json');
+        let authToken = localStorage.getItem('auth_token');
+        this.headers.append('Authorization', `Bearer ${authToken}`);
     }
 
     protected httpGet(url: string, params: any = {}): Observable<any> {

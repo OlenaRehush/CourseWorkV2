@@ -15,8 +15,8 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-select placeholder="Select">
-        <mat-option value="option">Option</mat-option>
+      <mat-select placeholder="Assign User">
+        <mat-option value="user.id" *ngFor="let user of users">{{user.firstName}} {{user.lastName}}</mat-option>
       </mat-select>
     </mat-form-field>
 

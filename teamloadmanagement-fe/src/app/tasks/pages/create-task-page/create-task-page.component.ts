@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TasksService } from '../../services/tasks.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { MatSnackBar  } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
+import { UsersService } from '../../../users/services/users.service';
 
 const TaskCreatedString = "Task Created";
 const TaskCreatedAction = "OK";
@@ -13,15 +14,22 @@ const TaskCreatedAction = "OK";
 })
 export class CreateTaskPageComponent implements OnInit {
 
+  users;
+
   constructor(public tasksService: TasksService,
     public router: Router,
-    public snackBar: MatSnackBar) { }
+    public snackBar: MatSnackBar,
+    public usersService: UsersService) { }
 
   ngOnInit() {
+    this.usersService.getUsers().subscribe(result=>{
+      this.users = result;
+    });
   }
 
   onSubmit({ value, valid }) {
     if (valid) {
+
       this.tasksService.createTask(value).subscribe(task => {
         this.snackBar.open(TaskCreatedString, TaskCreatedAction, {
           duration: 2000,
