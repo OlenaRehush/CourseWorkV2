@@ -17,4 +17,4 @@
     </mat-form-field>
 </div>
 
-<app-users-table *ngIf="users" [users]="users"></app-users-table>
+<app-users-table *ngIf="users" [users]="users" (assignTaskEvent)="assignTask($event)"></app-users-table>

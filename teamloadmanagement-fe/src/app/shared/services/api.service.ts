@@ -2,7 +2,6 @@ import { Injector, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
-// import { SpinnerService } from './spinner.service';
 import { finalize } from 'rxjs/operators'
 import { map, catchError } from 'rxjs/operators';
 

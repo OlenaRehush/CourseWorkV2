@@ -1,10 +1,7 @@
-import {Component, OnInit, ViewChild, Input, Output, EventEmitter} from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { Task } from '../../../shared/models';
-import {animate, state, style, transition, trigger} from '@angular/animations';
-
-
-
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-tasks-table',
@@ -12,8 +9,8 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   styleUrls: ['./tasks-table.component.scss'],
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0', display: 'none'})),
-      state('expanded', style({height: '*'})),
+      state('collapsed', style({ height: '0px', minHeight: '0', display: 'none' })),
+      state('expanded', style({ height: '*' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ]
@@ -33,13 +30,13 @@ export class TasksTableComponent implements OnInit {
   @Output() public assignTaskEvent = new EventEmitter();
 
   constructor() {
-   }
+  }
 
   ngOnInit() {
     this.dataSource = new MatTableDataSource(this.tasks);
 
-     this.dataSource.paginator = this.paginator;
-     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   applyFilter(filterValue: string) {
@@ -50,15 +47,15 @@ export class TasksTableComponent implements OnInit {
     }
   }
 
-  delete(element){
+  delete(element) {
     this.deleteTaskEvent.emit(element);
   }
 
-  assign(element){
+  assign(element) {
     this.assignTaskEvent.emit(element);
   }
 
-  edit(element){
+  edit(element) {
 
   }
 }

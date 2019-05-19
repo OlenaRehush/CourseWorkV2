@@ -28,7 +28,6 @@
     "classlist.js": "1.1.20150312",
     "core-js": "^2.5.0",
     "echarts": "^4.2.1",
-    "nebular-icons": "^1.1.0",
     "ng2-charts": "^2.2.3",
     "ngx-bootstrap": "^4.0.1",
     "ngx-spinner": "^7.1.4",

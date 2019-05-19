@@ -6,7 +6,8 @@
 
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"><a href="users/{{element.id}}">{{element.firstName}} {{element.lastName}}</a></td>
+    <td mat-cell *matCellDef="let element"><a href="users/{{element.id}}">{{element.firstName}} {{element.lastName}}</a>
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="skills">
@@ -18,10 +19,27 @@
     <th mat-header-cell *matHeaderCellDef> Tasks </th>
     <td mat-cell *matCellDef="let element">{{element.tasks.length}} tasks</td>
   </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="assign(element)">
+          <mat-icon>assignment</mat-icon>
+          <span>Assign task</span>
+        </button>
+      </mat-menu>
+    </td>
+  </ng-container>
+
   <ng-container matColumnDef="expandedDetail">
     <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
       <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-        
+        <div>{{getTasksLength(element.tasks,'to do')}} tasks to do.</div>
+        <div>{{getTasksLength(element.tasks,'in progress')}} tasks in progress.</div>
       </div>
     </td>
   </ng-container>

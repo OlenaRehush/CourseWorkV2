@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Select the {{type}}</h1>
+<div mat-dialog-content>
+  <mat-action-list *ngIf="users">
+    <button mat-list-item *ngFor="let user of users" (click)="select(user)"> {{user.firstName}}
+      {{user.lastName}}</button>
+  </mat-action-list>
+  <mat-action-list *ngIf="tasks">
+    <button mat-list-item *ngFor="let task of tasks" (click)="select(task)"> {{task.title}}</button>
+  </mat-action-list>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="selectedValue" cdkFocusInitial>Select</button>
+</div>

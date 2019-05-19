@@ -3,6 +3,8 @@ import { Headers, Http, RequestOptions } from '@angular/http';
 import { BehaviorSubject, Observable } from 'rxjs/Rx';
 import '../../rxjs-operators';
 import { BaseService } from "./base.service";
+import { finalize } from 'rxjs/operators'
+
 
 @Injectable()
 export class UserService extends BaseService {
@@ -14,6 +16,7 @@ export class UserService extends BaseService {
   authNavStatus$ = this._authNavStatusSource.asObservable();
 
   private loggedIn = false;
+  public id;
 
   constructor(private http: Http) {
     super();
@@ -30,7 +33,7 @@ export class UserService extends BaseService {
 
     return this.http.post(`${this.baseUrl}/api/accounts`, body, options)
       .map(res => true)
-      .catch(this.handleError);
+      .catch(this.handleError)
   }
 
   login(userName: string, password: string) {
@@ -46,6 +49,7 @@ export class UserService extends BaseService {
       .map(res => {
         localStorage.setItem('auth_token', res.auth_token);
         this.loggedIn = true;
+        this.id = res.id;
         this._authNavStatusSource.next(true);
         return true;
       })

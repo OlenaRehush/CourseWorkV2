@@ -3,8 +3,10 @@ import { Task } from '../../../shared/models';
 import { TasksService } from '../../services/tasks.service';
 import { AppService } from '../../../shared/services/app.service';
 import { UsersService } from '../../../users/services/users.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { AssignDialogComponent } from '../../../shared/components/assign-dialog/assign-dialog.component';
 
-enum TaskState{
+enum TaskState {
   "To do",
   "Im progress",
   "Done"
@@ -25,7 +27,8 @@ export class TasksPageComponent implements OnInit {
 
   constructor(public tasksService: TasksService,
     public usersService: UsersService,
-    public appService: AppService) {
+    public appService: AppService,
+    public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -54,5 +57,17 @@ export class TasksPageComponent implements OnInit {
       });
     }
   }
+
+  assing($event) {
+    const dialogRef = this.dialog.open(AssignDialogComponent, {
+      width: '500px',
+      data: { type: "user" }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
+  }
+
 
 }

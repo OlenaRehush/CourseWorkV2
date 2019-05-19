@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserRegistration } from '../../shared/models/user.registration.interface';
 import { UserService } from '../../shared/services/user.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-registration-form',
@@ -13,19 +14,25 @@ export class RegistrationFormComponent implements OnInit {
   isRequesting: boolean;
   submitted: boolean = false;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, 
+    private router: Router,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
   }
 
   registerUser({ value, valid }: { value: UserRegistration, valid: boolean }) {
+    this.spinner.show();
     console.log(value);
     this.submitted = true;
     this.isRequesting = true;
     this.errors = '';
     if (valid) {
       this.userService.register(value.firstName, value.lastName, value.email, value.password)
-        .finally(() => this.isRequesting = false)
+        .finally(() => {
+          this.isRequesting = false;
+          this.spinner.hide();
+        })
         .subscribe(
           result => {
             if (result) {

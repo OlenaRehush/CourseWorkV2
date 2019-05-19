@@ -20,8 +20,8 @@ import { HomeComponent } from './home/home.component';
 import { NgMaterialModule } from './ng-material.module';
 import { ConfigService } from './shared/utils/config.service';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { NbThemeModule, NbCardModule } from '@nebular/theme';
 import { HomeModule } from './home/home.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -30,8 +30,6 @@ import { HomeModule } from './home/home.module';
   ],
   imports: [
     CommonModule,
-    NbThemeModule.forRoot(),
-    NbCardModule,
     NgMaterialModule,
     NgxSpinnerModule,
     HttpClientModule,
@@ -41,6 +39,7 @@ import { HomeModule } from './home/home.module';
     FormsModule,
     CoreModule,
     HomeModule,
+    SharedModule,
     TaskModule,
     UserModule,
     DashboardModule,

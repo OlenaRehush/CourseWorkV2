@@ -20,7 +20,7 @@
 </div>
 
 <app-tasks-table *ngIf="tasks && tasks.length>0" [tasks]="tasks" (deleteTaskEvent)="delete($event)"
-    (assignTaskEvent)="assing($element)">
+    (assignTaskEvent)="assing($event)">
 </app-tasks-table>
 
 <button mat-fab class="add-task-button">
