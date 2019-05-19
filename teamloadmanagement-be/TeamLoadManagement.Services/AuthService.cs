@@ -12,12 +12,12 @@ namespace TeamLoadManagement.Services
     public class AuthService : IAuthService
     {
         private readonly JwtIssuerOptions jwtOptions;
-        private readonly UserManager<AppUser> userManager;
+        private readonly UserManager<UserEntity> userManager;
         private readonly IJwtFactory jwtFactory;
 
         public AuthService(
             IOptions<JwtIssuerOptions> jwtOptions,
-            UserManager<AppUser> userManager,
+            UserManager<UserEntity> userManager,
             IJwtFactory jwtFactory)
         {
             this.jwtOptions = jwtOptions.Value;

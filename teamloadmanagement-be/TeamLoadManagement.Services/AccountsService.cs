@@ -9,21 +9,20 @@ namespace TeamLoadManagement.Services
     public class AccountsService : IAccountsService
     {
         private readonly ApplicationDbContext appDbContext;
-        private readonly UserManager<AppUser> userManager;
+        private readonly UserManager<UserEntity> userManager;
 
-        public AccountsService(ApplicationDbContext appDbContext, UserManager<AppUser> userManager)
+        public AccountsService(ApplicationDbContext appDbContext, UserManager<UserEntity> userManager)
         {
             this.appDbContext = appDbContext;
             this.userManager = userManager;
         }
 
-        public async Task<bool> TryRegisterUserAsync(AppUser userIdentity, string password)
+        public async Task<bool> TryRegisterUserAsync(UserEntity userIdentity, string password)
         {
             IdentityResult result = await this.userManager.CreateAsync(userIdentity, password);
 
             if (result.Succeeded)
             {
-                await this.appDbContext.Customers.AddAsync(new Customer { IdentityId = userIdentity.Id });
                 await this.appDbContext.SaveChangesAsync();
             }
 

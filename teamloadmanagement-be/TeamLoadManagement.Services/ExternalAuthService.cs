@@ -17,7 +17,7 @@ namespace TeamLoadManagement.Services
         private readonly IJwtFactory jwtFactory;
         private readonly JwtIssuerOptions jwtOptions;
         private readonly FacebookAuthSettings fbAuthSettings;
-        private readonly UserManager<AppUser> userManager;
+        private readonly UserManager<UserEntity> userManager;
         private readonly ApplicationDbContext appDbContext;
         private static readonly HttpClient Client = new HttpClient();
 
@@ -25,7 +25,7 @@ namespace TeamLoadManagement.Services
             IJwtFactory jwtFactory,
             IOptions<JwtIssuerOptions> jwtOptions,
             IOptions<FacebookAuthSettings> fbAuthSettingsAccessor,
-            UserManager<AppUser> userManager,
+            UserManager<UserEntity> userManager,
             ApplicationDbContext appDbContext)
         {
             this.jwtFactory = jwtFactory;
@@ -44,11 +44,11 @@ namespace TeamLoadManagement.Services
                 return null;
             }
 
-            AppUser user = await this.userManager.FindByEmailAsync(userInfo.Email);
+            UserEntity user = await this.userManager.FindByEmailAsync(userInfo.Email);
 
             if (user == null)
             {
-                var appUser = new AppUser
+                var appUser = new UserEntity
                 {
                     FirstName = userInfo.FirstName,
                     LastName = userInfo.LastName,
@@ -62,12 +62,11 @@ namespace TeamLoadManagement.Services
 
                 if (result.Succeeded)
                 {
-                    await this.appDbContext.Customers.AddAsync(new Customer { IdentityId = appUser.Id, Locale = userInfo.Locale, Gender = userInfo.Gender });
                     await this.appDbContext.SaveChangesAsync();
                 }
             }
 
-            AppUser localUser = await this.userManager.FindByNameAsync(userInfo.Email);
+            UserEntity localUser = await this.userManager.FindByNameAsync(userInfo.Email);
 
             if (localUser == null)
             {

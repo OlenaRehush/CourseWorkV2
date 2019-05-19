@@ -1,7 +1,6 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TeamLoadManagement.Dto;
 using TeamLoadManagement.Services.Abstractions;
 
 namespace TeamLoadManagement.Api.Controllers
@@ -20,14 +19,14 @@ namespace TeamLoadManagement.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> Home()
         {
-            CustomerDto customer = await this.dashboardService.GetData();
+            var user = await this.dashboardService.GetData();
 
-            if (customer == null)
+            if (user == null)
             {
                 return this.NotFound();
             }
 
-            return this.Ok(customer);
+            return this.Ok(user);
         }
     }
 }

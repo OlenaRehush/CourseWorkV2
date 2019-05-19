@@ -5,6 +5,6 @@ namespace TeamLoadManagement.Services.Abstractions
 {
     public interface IAccountsService
     {
-        Task<bool> TryRegisterUserAsync(AppUser userIdentity, string password);
+        Task<bool> TryRegisterUserAsync(UserEntity userIdentity, string password);
     }
 }

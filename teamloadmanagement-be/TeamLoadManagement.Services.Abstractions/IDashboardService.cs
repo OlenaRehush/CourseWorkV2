@@ -5,6 +5,6 @@ namespace TeamLoadManagement.Services.Abstractions
 {
     public interface IDashboardService
     {
-        Task<CustomerDto> GetData();
+        Task<UserDto> GetData();
     }
 }
