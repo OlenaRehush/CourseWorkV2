@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { User, Task } from '../../models';
 import { UsersService } from '../../../users/services/users.service';
 import { TasksService } from '../../../tasks/services/tasks.service';
@@ -15,6 +15,7 @@ export class AssignDialogComponent implements OnInit {
   users: User[];
   tasks: Task[];
   selectedValue: any;
+  selectedOptions: any[] = [];
 
   constructor(public dialogRef: MatDialogRef<AssignDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,

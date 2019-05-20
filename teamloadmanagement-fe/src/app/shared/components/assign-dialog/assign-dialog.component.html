@@ -4,11 +4,14 @@
     <button mat-list-item *ngFor="let user of users" (click)="select(user)"> {{user.firstName}}
       {{user.lastName}}</button>
   </mat-action-list>
-  <mat-action-list *ngIf="tasks">
-    <button mat-list-item *ngFor="let task of tasks" (click)="select(task)"> {{task.title}}</button>
-  </mat-action-list>
+  <mat-selection-list #list [(ngModel)]="selectedOptions" *ngIf="tasks">
+    <mat-list-option *ngFor="let task of tasks" [value]="task.id">
+      {{task.title}}
+    </mat-list-option>
+  </mat-selection-list>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button [mat-dialog-close]="selectedValue" cdkFocusInitial>Select</button>
+  <button mat-button [mat-dialog-close]="selectedValue" cdkFocusInitial *ngIf="users">Assign</button>
+  <button mat-button [mat-dialog-close]="selectedOptions" cdkFocusInitial *ngIf="tasks">Assign</button>
 </div>
