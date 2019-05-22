@@ -8,6 +8,8 @@ namespace TeamLoadManagement.DataAccess.Entities
 
         public string UserId { get; set; }
 
+        public int? EpicId { get; set; }
+
         public string Title { get; set; }
 
         public string Description { get; set; }
@@ -19,5 +21,7 @@ namespace TeamLoadManagement.DataAccess.Entities
         public TaskStatus Status { get; set; }
 
         public UserEntity User { get; set; }
+
+        public EpicEntity Epic { get; set; }
     }
 }

@@ -17,6 +17,8 @@ namespace TeamLoadManagement.DataAccess
 
         public DbSet<UserSkillEntity> UserSkills { get; set; }
 
+        public DbSet<EpicEntity> Epics { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);

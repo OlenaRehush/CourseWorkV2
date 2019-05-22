@@ -11,6 +11,10 @@ namespace TeamLoadManagement.DataAccess.Mappings
             builder.HasOne(x => x.User)
                 .WithMany(x => x.Tasks)
                 .HasForeignKey(x => x.UserId);
+
+            builder.HasOne(x => x.Epic)
+                .WithMany(x => x.Tasks)
+                .HasForeignKey(x => x.EpicId);
         }
     }
 }

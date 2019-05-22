@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TeamLoadManagement.Api.Requests;
 using TeamLoadManagement.Services.Abstractions;
-using TeamLoadManagement.Services.Helpers;
 
 namespace TeamLoadManagement.Api.Controllers
 {

@@ -1,6 +1,6 @@
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TeamLoadManagement.Api.Requests;
 using TeamLoadManagement.Services.Abstractions;
@@ -43,7 +43,7 @@ namespace TeamLoadManagement.Api.Controllers
                 request.Estimate,
                 request.UserId);
 
-            return this.StatusCode(StatusCodes.Status201Created);
+            return this.StatusCode((int)HttpStatusCode.Created);
         }
 
         [HttpPut]

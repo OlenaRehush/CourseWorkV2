@@ -31,6 +31,9 @@ namespace TeamLoadManagement.Services.Di
 
             builder.RegisterType<SkillsService>()
                 .As<ISkillsService>();
+
+            builder.RegisterType<EpicsService>()
+                .As<IEpicsService>();
         }
     }
 }
